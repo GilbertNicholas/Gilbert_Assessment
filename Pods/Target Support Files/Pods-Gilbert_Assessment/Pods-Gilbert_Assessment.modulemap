@@ -1,0 +1,6 @@
+framework module Pods_Gilbert_Assessment {
+  umbrella header "Pods-Gilbert_Assessment-umbrella.h"
+
+  export *
+  module * { export * }
+}

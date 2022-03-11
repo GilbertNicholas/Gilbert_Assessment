@@ -9,21 +9,39 @@
 /* Begin PBXBuildFile section */
 		02DD584327DAF4EE00C8F159 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD584227DAF4EE00C8F159 /* AppDelegate.swift */; };
 		02DD584527DAF4EE00C8F159 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD584427DAF4EE00C8F159 /* SceneDelegate.swift */; };
-		02DD584727DAF4EE00C8F159 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD584627DAF4EE00C8F159 /* ViewController.swift */; };
-		02DD584A27DAF4EE00C8F159 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02DD584827DAF4EE00C8F159 /* Main.storyboard */; };
+		02DD584727DAF4EE00C8F159 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD584627DAF4EE00C8F159 /* ContainerViewController.swift */; };
 		02DD584C27DAF4F000C8F159 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02DD584B27DAF4F000C8F159 /* Assets.xcassets */; };
 		02DD584F27DAF4F000C8F159 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02DD584D27DAF4F000C8F159 /* LaunchScreen.storyboard */; };
+		02DD58A827DB47DE00C8F159 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58A727DB47DE00C8F159 /* Constants.swift */; };
+		02DD58AB27DB483600C8F159 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58AA27DB483600C8F159 /* MenuViewController.swift */; };
+		02DD58AD27DB483F00C8F159 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58AC27DB483F00C8F159 /* DashboardViewController.swift */; };
+		02DD58AF27DB48FE00C8F159 /* GlobalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58AE27DB48FE00C8F159 /* GlobalExtensions.swift */; };
+		02DD58B127DB4A6700C8F159 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58B027DB4A6700C8F159 /* Protocols.swift */; };
+		02DD58B327DB59AF00C8F159 /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58B227DB59AF00C8F159 /* TransferViewController.swift */; };
+		02DD58B527DB59C100C8F159 /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58B427DB59C100C8F159 /* TransactionViewController.swift */; };
+		02DD58B727DB6D4E00C8F159 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58B627DB6D4E00C8F159 /* Transaction.swift */; };
+		07E10338F0D8BA17F045FC71 /* Pods_Gilbert_Assessment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7DAC0EC6719D522DF7FC500 /* Pods_Gilbert_Assessment.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		02DD583F27DAF4EE00C8F159 /* Gilbert_Assessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gilbert_Assessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02DD584227DAF4EE00C8F159 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02DD584427DAF4EE00C8F159 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		02DD584627DAF4EE00C8F159 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		02DD584927DAF4EE00C8F159 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		02DD584627DAF4EE00C8F159 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		02DD584B27DAF4F000C8F159 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		02DD584E27DAF4F000C8F159 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02DD585027DAF4F000C8F159 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02DD58A727DB47DE00C8F159 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		02DD58AA27DB483600C8F159 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		02DD58AC27DB483F00C8F159 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		02DD58AE27DB48FE00C8F159 /* GlobalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalExtensions.swift; sourceTree = "<group>"; };
+		02DD58B027DB4A6700C8F159 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		02DD58B227DB59AF00C8F159 /* TransferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
+		02DD58B427DB59C100C8F159 /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
+		02DD58B627DB6D4E00C8F159 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		2C191F57DA9041B00B59F49A /* Pods-Gilbert_Assessment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gilbert_Assessment.release.xcconfig"; path = "Target Support Files/Pods-Gilbert_Assessment/Pods-Gilbert_Assessment.release.xcconfig"; sourceTree = "<group>"; };
+		8FC33CB69D68C617FDBD581D /* Pods-Gilbert_Assessment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gilbert_Assessment.debug.xcconfig"; path = "Target Support Files/Pods-Gilbert_Assessment/Pods-Gilbert_Assessment.debug.xcconfig"; sourceTree = "<group>"; };
+		E7DAC0EC6719D522DF7FC500 /* Pods_Gilbert_Assessment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gilbert_Assessment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07E10338F0D8BA17F045FC71 /* Pods_Gilbert_Assessment.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +61,8 @@
 			children = (
 				02DD584127DAF4EE00C8F159 /* Gilbert_Assessment */,
 				02DD584027DAF4EE00C8F159 /* Products */,
+				C2AD3B8A9246FC507B449C01 /* Pods */,
+				CC8A29D2DED3B51481284DE7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +77,71 @@
 		02DD584127DAF4EE00C8F159 /* Gilbert_Assessment */ = {
 			isa = PBXGroup;
 			children = (
+				02DD58A627DB47CD00C8F159 /* Utilities */,
+				02DD585A27DAF9D900C8F159 /* ViewModel */,
+				02DD585827DAF9CF00C8F159 /* View */,
+				02DD585627DAF9C500C8F159 /* Model */,
 				02DD584227DAF4EE00C8F159 /* AppDelegate.swift */,
 				02DD584427DAF4EE00C8F159 /* SceneDelegate.swift */,
-				02DD584627DAF4EE00C8F159 /* ViewController.swift */,
-				02DD584827DAF4EE00C8F159 /* Main.storyboard */,
 				02DD584B27DAF4F000C8F159 /* Assets.xcassets */,
 				02DD584D27DAF4F000C8F159 /* LaunchScreen.storyboard */,
 				02DD585027DAF4F000C8F159 /* Info.plist */,
 			);
 			path = Gilbert_Assessment;
+			sourceTree = "<group>";
+		};
+		02DD585627DAF9C500C8F159 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				02DD58B627DB6D4E00C8F159 /* Transaction.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		02DD585827DAF9CF00C8F159 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				02DD584627DAF4EE00C8F159 /* ContainerViewController.swift */,
+				02DD58AA27DB483600C8F159 /* MenuViewController.swift */,
+				02DD58AC27DB483F00C8F159 /* DashboardViewController.swift */,
+				02DD58B227DB59AF00C8F159 /* TransferViewController.swift */,
+				02DD58B427DB59C100C8F159 /* TransactionViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		02DD585A27DAF9D900C8F159 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		02DD58A627DB47CD00C8F159 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				02DD58A727DB47DE00C8F159 /* Constants.swift */,
+				02DD58AE27DB48FE00C8F159 /* GlobalExtensions.swift */,
+				02DD58B027DB4A6700C8F159 /* Protocols.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		C2AD3B8A9246FC507B449C01 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8FC33CB69D68C617FDBD581D /* Pods-Gilbert_Assessment.debug.xcconfig */,
+				2C191F57DA9041B00B59F49A /* Pods-Gilbert_Assessment.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CC8A29D2DED3B51481284DE7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E7DAC0EC6719D522DF7FC500 /* Pods_Gilbert_Assessment.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +151,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 02DD585327DAF4F000C8F159 /* Build configuration list for PBXNativeTarget "Gilbert_Assessment" */;
 			buildPhases = (
+				9B5DE8AA5EE8442892B47654 /* [CP] Check Pods Manifest.lock */,
 				02DD583B27DAF4EE00C8F159 /* Sources */,
 				02DD583C27DAF4EE00C8F159 /* Frameworks */,
 				02DD583D27DAF4EE00C8F159 /* Resources */,
+				65343CCF10001C6951C7B393 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,34 +206,75 @@
 			files = (
 				02DD584F27DAF4F000C8F159 /* LaunchScreen.storyboard in Resources */,
 				02DD584C27DAF4F000C8F159 /* Assets.xcassets in Resources */,
-				02DD584A27DAF4EE00C8F159 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		65343CCF10001C6951C7B393 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gilbert_Assessment/Pods-Gilbert_Assessment-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gilbert_Assessment/Pods-Gilbert_Assessment-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gilbert_Assessment/Pods-Gilbert_Assessment-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9B5DE8AA5EE8442892B47654 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Gilbert_Assessment-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		02DD583B27DAF4EE00C8F159 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02DD584727DAF4EE00C8F159 /* ViewController.swift in Sources */,
+				02DD58B727DB6D4E00C8F159 /* Transaction.swift in Sources */,
+				02DD584727DAF4EE00C8F159 /* ContainerViewController.swift in Sources */,
+				02DD58B327DB59AF00C8F159 /* TransferViewController.swift in Sources */,
+				02DD58AD27DB483F00C8F159 /* DashboardViewController.swift in Sources */,
+				02DD58AB27DB483600C8F159 /* MenuViewController.swift in Sources */,
 				02DD584327DAF4EE00C8F159 /* AppDelegate.swift in Sources */,
+				02DD58B527DB59C100C8F159 /* TransactionViewController.swift in Sources */,
 				02DD584527DAF4EE00C8F159 /* SceneDelegate.swift in Sources */,
+				02DD58A827DB47DE00C8F159 /* Constants.swift in Sources */,
+				02DD58AF27DB48FE00C8F159 /* GlobalExtensions.swift in Sources */,
+				02DD58B127DB4A6700C8F159 /* Protocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		02DD584827DAF4EE00C8F159 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				02DD584927DAF4EE00C8F159 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		02DD584D27DAF4F000C8F159 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -284,6 +404,7 @@
 		};
 		02DD585427DAF4F000C8F159 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FC33CB69D68C617FDBD581D /* Pods-Gilbert_Assessment.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -294,7 +415,6 @@
 				INFOPLIST_FILE = Gilbert_Assessment/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -312,6 +432,7 @@
 		};
 		02DD585527DAF4F000C8F159 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C191F57DA9041B00B59F49A /* Pods-Gilbert_Assessment.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -322,7 +443,6 @@
 				INFOPLIST_FILE = Gilbert_Assessment/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
