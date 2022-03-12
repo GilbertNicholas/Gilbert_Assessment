@@ -11,5 +11,5 @@ struct Balance: Codable {
     var status: String
     var accountNo: String?
     var balance: Double?
-    var error: Error?
+    var error: ErrorResponse?
 }

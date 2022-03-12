@@ -11,6 +11,8 @@ class TransactionViewModel {
     private let apiCall = APIDataSource.singleton
     
     func getTransactionData() {
-        apiCall.requestData(type: .transactions, responseModel: Transaction.self)
+        apiCall.requestData(type: .transactions, responseModel: Transaction.self) { result in
+            
+        }
     }
 }

@@ -12,4 +12,5 @@ struct Auth: Codable {
     let token: String?
     let username: String?
     let accountNo: String?
+    let error: String?
 }

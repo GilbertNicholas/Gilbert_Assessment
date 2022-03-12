@@ -11,6 +11,8 @@ class DashboardViewModel {
     private let apiCall = APIDataSource.singleton
     
     func getBalance() {
-        apiCall.requestData(type: .balance, responseModel: Balance.self)
+        apiCall.requestData(type: .balance, responseModel: Balance.self) { result in
+            
+        }
     }
 }

@@ -12,10 +12,14 @@ class TransferViewModel {
     
     func transfer(receipientAccountNo: String, amount: Double, description: String) {
         let body = apiCall.transferBody(receipientAccountNo: receipientAccountNo, amount: amount, description: description)
-        apiCall.postData(type: .transfer, responseModel: Transfer.self, body: body)
+        apiCall.postData(type: .transfer, responseModel: Transfer.self, body: body) { result in
+            
+        }
     }
     
     func getPayees() {
-        apiCall.requestData(type: .payees, responseModel: Payees.self)
+        apiCall.requestData(type: .payees, responseModel: Payees.self) { result in
+            
+        }
     }
 }

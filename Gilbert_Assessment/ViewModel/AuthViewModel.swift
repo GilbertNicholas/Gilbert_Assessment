@@ -9,8 +9,35 @@ import Foundation
 
 class AuthViewModel {
     private let apiCall = APIDataSource.singleton
+    @Published var loadingStatus: Bool = false
+    @Published var authSuccess: Bool = false
+    @Published var authMessage: String = ""
+    
     func authCall(type: APIRequestType, username: String, password: String) {
+        self.loadingStatus = true
         let body = apiCall.authBody(username: username, password: password)
-        apiCall.postData(type: type, responseModel: Auth.self, body: body)
+        
+        apiCall.postData(type: type, responseModel: Auth.self, body: body) { result in
+            print("DEBUG: \(result)")
+            switch result {
+            case .success(let dataAuth):
+                UserDefaults.standard.set(dataAuth.token, forKey: UserDefaultsType.token.rawValue)
+                UserDefaults.standard.set(dataAuth.username, forKey: UserDefaultsType.username.rawValue)
+                UserDefaults.standard.set(dataAuth.accountNo, forKey: UserDefaultsType.accNumber.rawValue)
+                
+                self.loadingStatus = false
+                self.authSuccess = true
+                
+                if let error = dataAuth.error {
+                    self.authSuccess = false
+                    self.authMessage = error
+                }
+                
+            case .failure(let error):
+                print("DebugError: \(error.localizedDescription)")
+                self.authSuccess = false
+                self.authMessage = error.localizedDescription
+            }
+        }
     }
 }

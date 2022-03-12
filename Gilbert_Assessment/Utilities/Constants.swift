@@ -44,19 +44,10 @@ enum APIRequestType: String {
     case transactions = "transactions"
     case payees = "payees"
     case transfer = "transfer"
-    
-    func getModelResponse<T:Codable>() -> T.Type {
-        switch self {
-        case .login, .register:
-            return Auth.self as! T.Type
-        case .balance:
-            return Balance.self as! T.Type
-        case .transactions:
-            return Transaction.self as! T.Type
-        case .payees:
-            return Payees.self as! T.Type
-        case .transfer:
-            return Balance.self as! T.Type
-        }
-    }
+}
+
+enum UserDefaultsType: String {
+    case token = "token"
+    case username = "username"
+    case accNumber = "accNumber"
 }

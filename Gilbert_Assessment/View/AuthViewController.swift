@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import Combine
 
 class AuthViewController: UIViewController {
+    
+    private var subs = Set<AnyCancellable>()
     
     let emailTextField = TextFieldForm()
     let passwordTextField = TextFieldForm()
@@ -31,7 +34,7 @@ class AuthViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         configureUI()
-        APIDataSource.singleton.requestData(type: .balance, responseModel: Balance.self)
+        configureObserver()
     }
     
     private func configureUI() {
@@ -63,11 +66,38 @@ class AuthViewController: UIViewController {
         indicator.center(inView: view)
     }
     
+    private func configureObserver() {
+        viewModel.$loadingStatus.sink { loadingStatus in
+            if loadingStatus {
+                self.indicator.startAnimating()
+            } else {
+                self.indicator.stopAnimating()
+            }
+        }.store(in: &subs)
+        
+        viewModel.$authSuccess.sink { authStatus in
+            if authStatus {
+                self.delegate?.didChangeContent()
+            }
+        }.store(in: &subs)
+        
+        viewModel.$authMessage.sink { errorMsg in
+            if !errorMsg.isEmpty {
+                self.showAlert(title: "Failed Login", message: errorMsg)
+            }
+        }.store(in: &subs)
+    }
+    
+    public func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Close", style: .default, handler: nil)
+        alertController.addAction(action)
+        present(alertController, animated: true, completion: nil)
+    }
+    
     @objc func handleLogin() {
         if let username = emailTextField.text, let password = passwordTextField.text {
             viewModel.authCall(type: .login, username: username, password: password)
-            UserDefaults.standard.set("token1", forKey: "token")
-            delegate?.didChangeContent()
         }
     }
     
