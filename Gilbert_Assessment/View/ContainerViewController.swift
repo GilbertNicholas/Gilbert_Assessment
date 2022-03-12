@@ -99,7 +99,6 @@ extension ContainerViewController: MenuViewControllerDelegate {
     
     func resetToHome() {
         removeCurrVC()
-        
         currVC?.title = "Dashboard"
     }
     

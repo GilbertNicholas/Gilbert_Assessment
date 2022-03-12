@@ -13,6 +13,33 @@ class TransferViewController: UIViewController {
         super.viewDidLoad()
 
         title = "Transfer"
-        view.backgroundColor = .green
+        view.backgroundColor = .systemBackground
+        configureUI()
+    }
+    
+    let textField = TextFieldForm()
+
+    func configureUI() {
+//        view.addSubview(textField)
+//        textField.delegate = self
+//        textField.placeholder = "Tulis!"
+//        textField.centerX(inView: view, topAnchor: view.safeAreaLayoutGuide.topAnchor, paddingTop: 30)
+//        textField.anchor(width: view.bounds.width / 1.2, height: 40)
+        
+        view.addSubview(textField)
+        textField.delegate = self
+        textField.placeholder = "EMAIL"
+        textField.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 20, paddingLeft: 20, paddingRight: 20, height: 40)
+    }
+}
+
+extension TransferViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print("HASIL: \(textField.text)")
     }
 }

@@ -14,3 +14,7 @@ protocol DashboardViewControllerDelegate {
 protocol MenuViewControllerDelegate {
     func didSelectOption(menuOption: MenuOptions)
 }
+
+protocol TextFieldDelegate {
+    func setupText(text: String)
+}

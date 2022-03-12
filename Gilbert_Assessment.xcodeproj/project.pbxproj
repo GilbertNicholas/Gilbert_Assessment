@@ -20,6 +20,11 @@
 		02DD58B327DB59AF00C8F159 /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58B227DB59AF00C8F159 /* TransferViewController.swift */; };
 		02DD58B527DB59C100C8F159 /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58B427DB59C100C8F159 /* TransactionViewController.swift */; };
 		02DD58B727DB6D4E00C8F159 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58B627DB6D4E00C8F159 /* Transaction.swift */; };
+		02DD58BA27DB752F00C8F159 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58B927DB752F00C8F159 /* TableViewCell.swift */; };
+		02DD58BD27DB989100C8F159 /* TextFieldForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58BC27DB989100C8F159 /* TextFieldForm.swift */; };
+		02DD58BF27DBB73800C8F159 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58BE27DBB73800C8F159 /* AuthViewController.swift */; };
+		02DD58C127DBB74300C8F159 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58C027DBB74300C8F159 /* RegisterViewController.swift */; };
+		02DD58C327DBC23A00C8F159 /* ButtonForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58C227DBC23A00C8F159 /* ButtonForm.swift */; };
 		07E10338F0D8BA17F045FC71 /* Pods_Gilbert_Assessment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7DAC0EC6719D522DF7FC500 /* Pods_Gilbert_Assessment.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +44,11 @@
 		02DD58B227DB59AF00C8F159 /* TransferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
 		02DD58B427DB59C100C8F159 /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
 		02DD58B627DB6D4E00C8F159 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		02DD58B927DB752F00C8F159 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		02DD58BC27DB989100C8F159 /* TextFieldForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldForm.swift; sourceTree = "<group>"; };
+		02DD58BE27DBB73800C8F159 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		02DD58C027DBB74300C8F159 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		02DD58C227DBC23A00C8F159 /* ButtonForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonForm.swift; sourceTree = "<group>"; };
 		2C191F57DA9041B00B59F49A /* Pods-Gilbert_Assessment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gilbert_Assessment.release.xcconfig"; path = "Target Support Files/Pods-Gilbert_Assessment/Pods-Gilbert_Assessment.release.xcconfig"; sourceTree = "<group>"; };
 		8FC33CB69D68C617FDBD581D /* Pods-Gilbert_Assessment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gilbert_Assessment.debug.xcconfig"; path = "Target Support Files/Pods-Gilbert_Assessment/Pods-Gilbert_Assessment.debug.xcconfig"; sourceTree = "<group>"; };
 		E7DAC0EC6719D522DF7FC500 /* Pods_Gilbert_Assessment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gilbert_Assessment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,11 +111,15 @@
 		02DD585827DAF9CF00C8F159 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				02DD58BB27DB986600C8F159 /* ReusableView */,
+				02DD58B827DB74FC00C8F159 /* TransactionViewCell */,
 				02DD584627DAF4EE00C8F159 /* ContainerViewController.swift */,
 				02DD58AA27DB483600C8F159 /* MenuViewController.swift */,
 				02DD58AC27DB483F00C8F159 /* DashboardViewController.swift */,
 				02DD58B227DB59AF00C8F159 /* TransferViewController.swift */,
 				02DD58B427DB59C100C8F159 /* TransactionViewController.swift */,
+				02DD58BE27DBB73800C8F159 /* AuthViewController.swift */,
+				02DD58C027DBB74300C8F159 /* RegisterViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -125,6 +139,23 @@
 				02DD58B027DB4A6700C8F159 /* Protocols.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		02DD58B827DB74FC00C8F159 /* TransactionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				02DD58B927DB752F00C8F159 /* TableViewCell.swift */,
+			);
+			path = TransactionViewCell;
+			sourceTree = "<group>";
+		};
+		02DD58BB27DB986600C8F159 /* ReusableView */ = {
+			isa = PBXGroup;
+			children = (
+				02DD58BC27DB989100C8F159 /* TextFieldForm.swift */,
+				02DD58C227DBC23A00C8F159 /* ButtonForm.swift */,
+			);
+			path = ReusableView;
 			sourceTree = "<group>";
 		};
 		C2AD3B8A9246FC507B449C01 /* Pods */ = {
@@ -258,15 +289,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02DD58BF27DBB73800C8F159 /* AuthViewController.swift in Sources */,
 				02DD58B727DB6D4E00C8F159 /* Transaction.swift in Sources */,
 				02DD584727DAF4EE00C8F159 /* ContainerViewController.swift in Sources */,
 				02DD58B327DB59AF00C8F159 /* TransferViewController.swift in Sources */,
 				02DD58AD27DB483F00C8F159 /* DashboardViewController.swift in Sources */,
 				02DD58AB27DB483600C8F159 /* MenuViewController.swift in Sources */,
+				02DD58C127DBB74300C8F159 /* RegisterViewController.swift in Sources */,
 				02DD584327DAF4EE00C8F159 /* AppDelegate.swift in Sources */,
 				02DD58B527DB59C100C8F159 /* TransactionViewController.swift in Sources */,
 				02DD584527DAF4EE00C8F159 /* SceneDelegate.swift in Sources */,
 				02DD58A827DB47DE00C8F159 /* Constants.swift in Sources */,
+				02DD58C327DBC23A00C8F159 /* ButtonForm.swift in Sources */,
+				02DD58BA27DB752F00C8F159 /* TableViewCell.swift in Sources */,
+				02DD58BD27DB989100C8F159 /* TextFieldForm.swift in Sources */,
 				02DD58AF27DB48FE00C8F159 /* GlobalExtensions.swift in Sources */,
 				02DD58B127DB4A6700C8F159 /* Protocols.swift in Sources */,
 			);

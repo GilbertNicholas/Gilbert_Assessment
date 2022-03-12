@@ -22,6 +22,8 @@ class DashboardViewController: UIViewController {
         return label
     }()
     
+//    let textField = FormTextField()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -35,6 +37,10 @@ class DashboardViewController: UIViewController {
         
         view.addSubview(labelName)
         labelName.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 30)
+        
+//        view.addSubview(textField)
+//        textField.setupTextField(type: .text, title: "Email:", placeholder: "Tulis disini..")
+//        textField.anchor(top: labelName.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 20)
     }
     
     @objc func didTapMenuBtn() {

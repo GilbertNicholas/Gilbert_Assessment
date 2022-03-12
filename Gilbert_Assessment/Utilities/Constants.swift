@@ -31,3 +31,8 @@ enum MenuOptions: String, CaseIterable {
         }
     }
 }
+
+enum AuthType {
+    case login
+    case register
+}
