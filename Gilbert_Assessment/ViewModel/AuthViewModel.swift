@@ -25,14 +25,13 @@ class AuthViewModel {
                 UserDefaults.standard.set(dataAuth.username, forKey: UserDefaultsType.username.rawValue)
                 UserDefaults.standard.set(dataAuth.accountNo, forKey: UserDefaultsType.accNumber.rawValue)
                 
-                self.loadingStatus = false
-                self.authSuccess = true
-                
                 if let error = dataAuth.error {
                     self.authSuccess = false
                     self.authMessage = error
+                } else {
+                    self.loadingStatus = false
+                    self.authSuccess = true
                 }
-                
             case .failure(let error):
                 print("DebugError: \(error.localizedDescription)")
                 self.authSuccess = false
