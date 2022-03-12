@@ -36,3 +36,27 @@ enum AuthType {
     case login
     case register
 }
+
+enum APIRequestType: String {
+    case login = "login"
+    case register = "register"
+    case balance = "balance"
+    case transactions = "transactions"
+    case payees = "payees"
+    case transfer = "transfer"
+    
+    func getModelResponse<T:Codable>() -> T.Type {
+        switch self {
+        case .login, .register:
+            return Auth.self as! T.Type
+        case .balance:
+            return Balance.self as! T.Type
+        case .transactions:
+            return Transaction.self as! T.Type
+        case .payees:
+            return Payees.self as! T.Type
+        case .transfer:
+            return Balance.self as! T.Type
+        }
+    }
+}

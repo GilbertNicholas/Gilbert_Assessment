@@ -12,6 +12,7 @@ class ContainerViewController: UIViewController {
     private var stateMenu: StateMenu = .closed
     private var currVC: UIViewController?
     
+    var delegate: ContentCoordinatorDelegate?
     let menuVC = MenuViewController()
     let dashVC = DashboardViewController()
     
@@ -82,7 +83,7 @@ extension ContainerViewController: MenuViewControllerDelegate {
             let vc = transferVC
             self.addVC(vc: vc)
         case .logout:
-            break
+            self.logout()
         }
     }
     
@@ -108,6 +109,11 @@ extension ContainerViewController: MenuViewControllerDelegate {
             currVC?.didMove(toParent: nil)
             currVC = dashVC
         }
+    }
+    
+    func logout() {
+        UserDefaults.standard.set(nil, forKey: "token")
+        delegate?.didChangeContent()
     }
 }
 

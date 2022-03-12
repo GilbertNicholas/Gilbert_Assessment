@@ -18,3 +18,7 @@ protocol MenuViewControllerDelegate {
 protocol TextFieldDelegate {
     func setupText(text: String)
 }
+
+protocol ContentCoordinatorDelegate {
+    func didChangeContent()
+}

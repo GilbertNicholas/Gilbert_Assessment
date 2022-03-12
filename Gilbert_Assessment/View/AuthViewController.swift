@@ -13,8 +13,11 @@ class AuthViewController: UIViewController {
     let passwordTextField = TextFieldForm()
     let confirmPasswordTextField = TextFieldForm()
     let labelSwitch = UILabel()
+    let viewModel = AuthViewModel()
     lazy var buttonLogin = ButtonForm(text: "Sign In")
     lazy var buttonRegister = ButtonForm(text: "Sign Up")
+    
+    var delegate: ContentCoordinatorDelegate?
     
     private var authType: AuthType = .login
     
@@ -28,6 +31,7 @@ class AuthViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         configureUI()
+        APIDataSource.singleton.requestData(type: .balance, responseModel: Balance.self)
     }
     
     private func configureUI() {
@@ -53,9 +57,22 @@ class AuthViewController: UIViewController {
         let usedButton = self.authType == .login ? buttonLogin : buttonRegister
         view.addSubview(usedButton)
         usedButton.anchor(top: self.authType == .login ? passwordTextField.bottomAnchor : confirmPasswordTextField.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 40, paddingLeft: 20, paddingRight: 20, height: 40)
+        usedButton.addTarget(self, action: self.authType == .login ? #selector(handleLogin) : #selector(handleRegister), for: .touchUpInside)
         
         view.addSubview(indicator)
         indicator.center(inView: view)
+    }
+    
+    @objc func handleLogin() {
+        if let username = emailTextField.text, let password = passwordTextField.text {
+            viewModel.authCall(type: .login, username: username, password: password)
+            UserDefaults.standard.set("token1", forKey: "token")
+            delegate?.didChangeContent()
+        }
+    }
+    
+    @objc func handleRegister() {
+        
     }
 }
 
@@ -66,10 +83,6 @@ extension AuthViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField == emailTextField {
-            print("email: \(textField.text)")
-        } else {
-            print("pass: \(textField.text)")
-        }
+        
     }
 }
