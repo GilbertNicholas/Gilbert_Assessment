@@ -16,7 +16,7 @@ class TextFieldForm: UITextField {
         super.init(frame: frame)
         layer.cornerRadius = 8
         layer.borderWidth = 1.5
-        layer.borderColor = UIColor.lightGray.cgColor
+        layer.borderColor = UIColor.gray.cgColor
     }
     
     required init?(coder: NSCoder) {

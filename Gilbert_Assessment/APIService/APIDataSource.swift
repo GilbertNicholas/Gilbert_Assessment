@@ -23,7 +23,7 @@ class APIDataSource {
         request.httpMethod = HTTPMethod.get.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue(UserDefaults.standard.string(forKey: "token"), forHTTPHeaderField: "Authorization")
+        request.setValue(UserDefaults.standard.string(forKey: UserDefaultsType.token.rawValue), forHTTPHeaderField: "Authorization")
         
 //        let responseModel = APIRequestType.getModelResponse(type)
         
@@ -49,6 +49,11 @@ class APIDataSource {
         request.httpMethod = HTTPMethod.post.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
+        
+        if type == .transfer {
+            request.setValue(UserDefaults.standard.string(forKey: UserDefaultsType.token.rawValue), forHTTPHeaderField: "Authorization")
+        }
+        
         if let body = body {
             request.httpBody = body
         }

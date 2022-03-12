@@ -16,7 +16,6 @@ class DashboardViewModel {
     func getBalance() {
         loadingStatus = true
         apiCall.requestData(type: .balance, responseModel: Balance.self) { result in
-            print("DEBUG: \(result)")
             switch result {
             case .success(let balanceData):
                 if let balance = balanceData.balance {

@@ -9,7 +9,7 @@ import Foundation
 
 struct Payees: Codable {
     let status: String
-    let data: PayeesData?
+    let data: [PayeesData]?
     let error: ErrorResponse?
 }
 

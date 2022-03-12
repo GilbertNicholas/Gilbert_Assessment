@@ -61,13 +61,17 @@ extension UIView {
         }
     }
     
-    func centerY(inView view: UIView, leftAnchor: NSLayoutXAxisAnchor? = nil, paddingLeft: CGFloat? = nil, constant: CGFloat? = 0) {
+    func centerY(inView view: UIView, leftAnchor: NSLayoutXAxisAnchor? = nil, paddingLeft: CGFloat? = nil, rightAnchor: NSLayoutXAxisAnchor? = nil, paddingRight: CGFloat? = nil, constant: CGFloat? = 0) {
         translatesAutoresizingMaskIntoConstraints = false
         
         centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: constant!).isActive = true
         
         if let leftAnchor = leftAnchor, let paddingLeft = paddingLeft {
             self.leftAnchor.constraint(equalTo: leftAnchor, constant: paddingLeft).isActive = true
+        }
+        
+        if let rightAnchor = rightAnchor, let paddingRight = paddingRight {
+            self.rightAnchor.constraint(equalTo: rightAnchor, constant: -paddingRight).isActive = true
         }
     }
     
@@ -90,5 +94,17 @@ extension UILabel {
         let range = NSString(string: text).range(of: search, options: .caseInsensitive)
         attributedText.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 14), range: range)
         self.attributedText = attributedText
+    }
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTapOutside() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }

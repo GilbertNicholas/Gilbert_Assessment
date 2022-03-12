@@ -19,10 +19,11 @@ struct TranData: Codable {
     let transactionDate: String
     let description: String
     let transactionType: String
-    let receipient: Receipient
+    let receipient: Stakeholder?
+    let sender: Stakeholder?
 }
 
-struct Receipient: Codable {
+struct Stakeholder: Codable {
     let accountNo: String
     let accountHolder: String
 }

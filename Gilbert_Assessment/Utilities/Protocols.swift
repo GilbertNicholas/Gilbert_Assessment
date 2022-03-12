@@ -22,3 +22,7 @@ protocol TextFieldDelegate {
 protocol ContentCoordinatorDelegate {
     func didChangeContent()
 }
+
+protocol PayeesViewControllerDelegate {
+    func didSelectPayee(selectedPayee: PayeesData)
+}

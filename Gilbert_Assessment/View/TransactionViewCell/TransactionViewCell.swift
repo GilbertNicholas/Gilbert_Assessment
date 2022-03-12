@@ -1,5 +1,5 @@
 //
-//  TableViewCell.swift
+//  TransactionViewCell.swift
 //  Gilbert_Assessment
 //
 //  Created by Gilbert Nicholas on 11/03/22.
@@ -19,14 +19,13 @@ class TransactionViewCell: UITableViewCell {
     let labelID: UILabel = {
         let lbl = UILabel()
         lbl.font = UIFont.systemFont(ofSize: 12)
-        lbl.textColor = .lightGray
+        lbl.textColor = .gray
         return lbl
     }()
     
     let labelFund: UILabel = {
         let lbl = UILabel()
         lbl.font = UIFont.boldSystemFont(ofSize: 17)
-        lbl.textColor = .gray
         return lbl
     }()
     
@@ -41,18 +40,29 @@ class TransactionViewCell: UITableViewCell {
     
     private func configureUI() {
         contentView.addSubview(labelName)
-        labelName.anchor(top: contentView.topAnchor, left: contentView.leftAnchor, paddingTop: 10, paddingLeft: 10)
+        labelName.anchor(top: contentView.topAnchor, left: contentView.leftAnchor, paddingTop: 10, paddingLeft: 20)
         
         contentView.addSubview(labelID)
-        labelID.anchor(top: labelName.bottomAnchor, left: contentView.leftAnchor, bottom: contentView.bottomAnchor, paddingTop: 10, paddingLeft: 10)
+        labelID.anchor(top: labelName.bottomAnchor, left: contentView.leftAnchor, bottom: contentView.bottomAnchor, paddingTop: 10, paddingLeft: 20, paddingBottom: 10)
         
         contentView.addSubview(labelFund)
-        labelFund.anchor(top: labelName.topAnchor, right: contentView.rightAnchor, paddingTop: 30, paddingRight: 10)
+        labelFund.anchor(top: labelName.topAnchor, right: contentView.rightAnchor, paddingTop: 15, paddingRight: 15)
     }
     
     func configureContent(data: TranData) {
-        labelName.text = data.receipient.accountHolder
-        labelID.text = data.receipient.accountNo
-        labelFund.text = "SGD \(data.amount)"
+        if data.transactionType == TransactionType.transfer.rawValue {
+            if let receipient = data.receipient {
+                labelName.text = receipient.accountHolder
+                labelID.text = receipient.accountNo
+            }
+        } else {
+            if let sender = data.sender {
+                labelName.text = sender.accountHolder
+                labelID.text = sender.accountNo
+            }
+        }
+
+        labelFund.text = (data.transactionType == TransactionType.transfer.rawValue ? "- " : "") + "SGD \(data.amount)"
+        labelFund.textColor = data.transactionType == TransactionType.transfer.rawValue ? .red : .systemGreen
     }
 }

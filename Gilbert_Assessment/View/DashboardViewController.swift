@@ -43,6 +43,10 @@ class DashboardViewController: UIViewController {
         configureObserver()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        viewModel.getBalance()
+    }
+    
     private func configureUI() {
         let menuButton = UIBarButtonItem(image: UIImage(systemName: "list.dash"), style: .done, target: self, action: #selector(didTapMenuBtn))
         menuButton.tintColor = .black

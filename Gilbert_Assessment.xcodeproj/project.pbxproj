@@ -19,6 +19,10 @@
 		02D9D3C127DC7A9300922243 /* ContentPlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D9D3C027DC7A9300922243 /* ContentPlaceholderViewController.swift */; };
 		02D9D3C327DC8DFC00922243 /* Transfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D9D3C227DC8DFC00922243 /* Transfer.swift */; };
 		02D9D3C727DCAE0100922243 /* LabelErrorForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D9D3C627DCAE0100922243 /* LabelErrorForm.swift */; };
+		02D9D3CB27DD08B000922243 /* ChoosePayeesUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D9D3CA27DD08B000922243 /* ChoosePayeesUIView.swift */; };
+		02D9D3CD27DD122C00922243 /* PayeesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D9D3CC27DD122C00922243 /* PayeesListViewController.swift */; };
+		02D9D3CF27DD155800922243 /* PayeesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D9D3CE27DD155800922243 /* PayeesViewModel.swift */; };
+		02D9D3D127DD24FE00922243 /* LabelPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D9D3D027DD24FE00922243 /* LabelPlaceholder.swift */; };
 		02DD584327DAF4EE00C8F159 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD584227DAF4EE00C8F159 /* AppDelegate.swift */; };
 		02DD584527DAF4EE00C8F159 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD584427DAF4EE00C8F159 /* SceneDelegate.swift */; };
 		02DD584727DAF4EE00C8F159 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD584627DAF4EE00C8F159 /* ContainerViewController.swift */; };
@@ -32,7 +36,7 @@
 		02DD58B327DB59AF00C8F159 /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58B227DB59AF00C8F159 /* TransferViewController.swift */; };
 		02DD58B527DB59C100C8F159 /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58B427DB59C100C8F159 /* TransactionViewController.swift */; };
 		02DD58B727DB6D4E00C8F159 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58B627DB6D4E00C8F159 /* Transaction.swift */; };
-		02DD58BA27DB752F00C8F159 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58B927DB752F00C8F159 /* TableViewCell.swift */; };
+		02DD58BA27DB752F00C8F159 /* TransactionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58B927DB752F00C8F159 /* TransactionViewCell.swift */; };
 		02DD58BD27DB989100C8F159 /* TextFieldForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58BC27DB989100C8F159 /* TextFieldForm.swift */; };
 		02DD58BF27DBB73800C8F159 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58BE27DBB73800C8F159 /* AuthViewController.swift */; };
 		02DD58C127DBB74300C8F159 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58C027DBB74300C8F159 /* RegisterViewController.swift */; };
@@ -53,6 +57,10 @@
 		02D9D3C027DC7A9300922243 /* ContentPlaceholderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPlaceholderViewController.swift; sourceTree = "<group>"; };
 		02D9D3C227DC8DFC00922243 /* Transfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transfer.swift; sourceTree = "<group>"; };
 		02D9D3C627DCAE0100922243 /* LabelErrorForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelErrorForm.swift; sourceTree = "<group>"; };
+		02D9D3CA27DD08B000922243 /* ChoosePayeesUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePayeesUIView.swift; sourceTree = "<group>"; };
+		02D9D3CC27DD122C00922243 /* PayeesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayeesListViewController.swift; sourceTree = "<group>"; };
+		02D9D3CE27DD155800922243 /* PayeesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayeesViewModel.swift; sourceTree = "<group>"; };
+		02D9D3D027DD24FE00922243 /* LabelPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelPlaceholder.swift; sourceTree = "<group>"; };
 		02DD583F27DAF4EE00C8F159 /* Gilbert_Assessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gilbert_Assessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02DD584227DAF4EE00C8F159 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02DD584427DAF4EE00C8F159 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,7 +76,7 @@
 		02DD58B227DB59AF00C8F159 /* TransferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
 		02DD58B427DB59C100C8F159 /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
 		02DD58B627DB6D4E00C8F159 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
-		02DD58B927DB752F00C8F159 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		02DD58B927DB752F00C8F159 /* TransactionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewCell.swift; sourceTree = "<group>"; };
 		02DD58BC27DB989100C8F159 /* TextFieldForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldForm.swift; sourceTree = "<group>"; };
 		02DD58BE27DBB73800C8F159 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		02DD58C027DBB74300C8F159 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -150,15 +158,16 @@
 			isa = PBXGroup;
 			children = (
 				02DD58BB27DB986600C8F159 /* ReusableView */,
-				02DD58B827DB74FC00C8F159 /* TransactionViewCell */,
 				02DD584627DAF4EE00C8F159 /* ContainerViewController.swift */,
 				02DD58AA27DB483600C8F159 /* MenuViewController.swift */,
+				02DD58B827DB74FC00C8F159 /* TransactionViewCell */,
 				02DD58AC27DB483F00C8F159 /* DashboardViewController.swift */,
 				02DD58B227DB59AF00C8F159 /* TransferViewController.swift */,
 				02DD58B427DB59C100C8F159 /* TransactionViewController.swift */,
 				02DD58BE27DBB73800C8F159 /* AuthViewController.swift */,
 				02DD58C027DBB74300C8F159 /* RegisterViewController.swift */,
 				02D9D3C027DC7A9300922243 /* ContentPlaceholderViewController.swift */,
+				02D9D3CC27DD122C00922243 /* PayeesListViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -170,6 +179,7 @@
 				02D9D3BA27DC6E3500922243 /* DashboardViewModel.swift */,
 				02D9D3BC27DC6E4100922243 /* TransferViewModel.swift */,
 				02D9D3BE27DC6E4E00922243 /* TransactionViewModel.swift */,
+				02D9D3CE27DD155800922243 /* PayeesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -187,7 +197,7 @@
 		02DD58B827DB74FC00C8F159 /* TransactionViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				02DD58B927DB752F00C8F159 /* TableViewCell.swift */,
+				02DD58B927DB752F00C8F159 /* TransactionViewCell.swift */,
 			);
 			path = TransactionViewCell;
 			sourceTree = "<group>";
@@ -198,6 +208,8 @@
 				02DD58BC27DB989100C8F159 /* TextFieldForm.swift */,
 				02DD58C227DBC23A00C8F159 /* ButtonForm.swift */,
 				02D9D3C627DCAE0100922243 /* LabelErrorForm.swift */,
+				02D9D3CA27DD08B000922243 /* ChoosePayeesUIView.swift */,
+				02D9D3D027DD24FE00922243 /* LabelPlaceholder.swift */,
 			);
 			path = ReusableView;
 			sourceTree = "<group>";
@@ -336,6 +348,7 @@
 				02D9D3B727DC6D5C00922243 /* Auth.swift in Sources */,
 				02DD58BF27DBB73800C8F159 /* AuthViewController.swift in Sources */,
 				02DD58B727DB6D4E00C8F159 /* Transaction.swift in Sources */,
+				02D9D3CD27DD122C00922243 /* PayeesListViewController.swift in Sources */,
 				02DD584727DAF4EE00C8F159 /* ContainerViewController.swift in Sources */,
 				02DD58B327DB59AF00C8F159 /* TransferViewController.swift in Sources */,
 				02D9D3B127DC5A1E00922243 /* Balance.swift in Sources */,
@@ -349,11 +362,14 @@
 				02DD584527DAF4EE00C8F159 /* SceneDelegate.swift in Sources */,
 				02DD58A827DB47DE00C8F159 /* Constants.swift in Sources */,
 				02D9D3BB27DC6E3500922243 /* DashboardViewModel.swift in Sources */,
+				02D9D3CF27DD155800922243 /* PayeesViewModel.swift in Sources */,
 				02DD58C327DBC23A00C8F159 /* ButtonForm.swift in Sources */,
-				02DD58BA27DB752F00C8F159 /* TableViewCell.swift in Sources */,
+				02DD58BA27DB752F00C8F159 /* TransactionViewCell.swift in Sources */,
+				02D9D3D127DD24FE00922243 /* LabelPlaceholder.swift in Sources */,
 				02DD58BD27DB989100C8F159 /* TextFieldForm.swift in Sources */,
 				02D9D3BF27DC6E4E00922243 /* TransactionViewModel.swift in Sources */,
 				02D9D3BD27DC6E4100922243 /* TransferViewModel.swift in Sources */,
+				02D9D3CB27DD08B000922243 /* ChoosePayeesUIView.swift in Sources */,
 				02D9D3B927DC6E2700922243 /* AuthViewModel.swift in Sources */,
 				02D9D3C127DC7A9300922243 /* ContentPlaceholderViewController.swift in Sources */,
 				02DD58AF27DB48FE00C8F159 /* GlobalExtensions.swift in Sources */,

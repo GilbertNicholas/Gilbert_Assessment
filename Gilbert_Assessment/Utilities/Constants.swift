@@ -51,3 +51,8 @@ enum UserDefaultsType: String {
     case username = "username"
     case accNumber = "accNumber"
 }
+
+enum TransactionType: String {
+    case transfer = "transfer"
+    case received = "received"
+}
