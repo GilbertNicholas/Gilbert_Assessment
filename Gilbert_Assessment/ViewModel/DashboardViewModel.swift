@@ -9,10 +9,28 @@ import Foundation
 
 class DashboardViewModel {
     private let apiCall = APIDataSource.singleton
+    @Published var balance: Double = 0
+    @Published var loadingStatus: Bool = false
+    @Published var errorMsg: String = ""
     
     func getBalance() {
+        loadingStatus = true
         apiCall.requestData(type: .balance, responseModel: Balance.self) { result in
-            
+            print("DEBUG: \(result)")
+            switch result {
+            case .success(let balanceData):
+                if let balance = balanceData.balance {
+                    self.balance = balance
+                }
+                
+                if let error = balanceData.error?.message {
+                    self.errorMsg = error
+                }
+            case .failure(let error):
+                print("DebugError: \(error.localizedDescription)")
+                self.errorMsg = error.localizedDescription
+            }
+            self.loadingStatus = false
         }
     }
 }

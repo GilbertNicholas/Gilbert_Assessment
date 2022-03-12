@@ -18,6 +18,7 @@
 		02D9D3BF27DC6E4E00922243 /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D9D3BE27DC6E4E00922243 /* TransactionViewModel.swift */; };
 		02D9D3C127DC7A9300922243 /* ContentPlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D9D3C027DC7A9300922243 /* ContentPlaceholderViewController.swift */; };
 		02D9D3C327DC8DFC00922243 /* Transfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D9D3C227DC8DFC00922243 /* Transfer.swift */; };
+		02D9D3C727DCAE0100922243 /* LabelErrorForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D9D3C627DCAE0100922243 /* LabelErrorForm.swift */; };
 		02DD584327DAF4EE00C8F159 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD584227DAF4EE00C8F159 /* AppDelegate.swift */; };
 		02DD584527DAF4EE00C8F159 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD584427DAF4EE00C8F159 /* SceneDelegate.swift */; };
 		02DD584727DAF4EE00C8F159 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD584627DAF4EE00C8F159 /* ContainerViewController.swift */; };
@@ -51,6 +52,7 @@
 		02D9D3BE27DC6E4E00922243 /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
 		02D9D3C027DC7A9300922243 /* ContentPlaceholderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPlaceholderViewController.swift; sourceTree = "<group>"; };
 		02D9D3C227DC8DFC00922243 /* Transfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transfer.swift; sourceTree = "<group>"; };
+		02D9D3C627DCAE0100922243 /* LabelErrorForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelErrorForm.swift; sourceTree = "<group>"; };
 		02DD583F27DAF4EE00C8F159 /* Gilbert_Assessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gilbert_Assessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02DD584227DAF4EE00C8F159 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02DD584427DAF4EE00C8F159 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			children = (
 				02DD58BC27DB989100C8F159 /* TextFieldForm.swift */,
 				02DD58C227DBC23A00C8F159 /* ButtonForm.swift */,
+				02D9D3C627DCAE0100922243 /* LabelErrorForm.swift */,
 			);
 			path = ReusableView;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				02D9D3C127DC7A9300922243 /* ContentPlaceholderViewController.swift in Sources */,
 				02DD58AF27DB48FE00C8F159 /* GlobalExtensions.swift in Sources */,
 				02DD58B127DB4A6700C8F159 /* Protocols.swift in Sources */,
+				02D9D3C727DCAE0100922243 /* LabelErrorForm.swift in Sources */,
 				02D9D3C327DC8DFC00922243 /* Transfer.swift in Sources */,
 				02D9D3B327DC5B5800922243 /* ErrorResponse.swift in Sources */,
 			);

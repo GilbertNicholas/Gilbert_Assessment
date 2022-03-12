@@ -25,7 +25,7 @@ class TransferViewController: UIViewController {
 //        textField.placeholder = "Tulis!"
 //        textField.centerX(inView: view, topAnchor: view.safeAreaLayoutGuide.topAnchor, paddingTop: 30)
 //        textField.anchor(width: view.bounds.width / 1.2, height: 40)
-        
+
         view.addSubview(textField)
         textField.delegate = self
         textField.placeholder = "EMAIL"

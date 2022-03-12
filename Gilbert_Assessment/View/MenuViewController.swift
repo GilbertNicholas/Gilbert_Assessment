@@ -20,8 +20,8 @@ class MenuViewController: UIViewController {
     
     let userLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 17)
-        label.text = "Gilbert Nicholas"
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 22)
         return label
     }()
     
@@ -35,12 +35,15 @@ class MenuViewController: UIViewController {
     
     private func configureUI() {
         view.addSubview(userLabel)
+        if let username = UserDefaults.standard.string(forKey: UserDefaultsType.username.rawValue) {
+            userLabel.text = username
+        }
         userLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 20, paddingLeft: 20)
         
         view.addSubview(tableView)
-        tableView.anchor(top: userLabel.bottomAnchor, left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingTop: 20)
+        tableView.anchor(top: userLabel.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 10)
         
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .gray
     }
 }
 
@@ -54,7 +57,9 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
         
         var content = cell.defaultContentConfiguration()
         content.text = MenuOptions.allCases[indexPath.row].rawValue
+        content.textProperties.color = .white
         content.image = UIImage(systemName: MenuOptions.allCases[indexPath.row].imageName)
+        content.imageProperties.tintColor = .white
 
         cell.contentConfiguration = content
         cell.backgroundColor = .lightGray

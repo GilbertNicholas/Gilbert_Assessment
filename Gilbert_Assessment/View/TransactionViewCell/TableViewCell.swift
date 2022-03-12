@@ -53,6 +53,6 @@ class TransactionViewCell: UITableViewCell {
     func configureContent(data: TranData) {
         labelName.text = data.receipient.accountHolder
         labelID.text = data.receipient.accountNo
-        labelFund.text = "$ \(data.amount)"
+        labelFund.text = "SGD \(data.amount)"
     }
 }
