@@ -8,7 +8,7 @@
 import XCTest
 @testable import Gilbert_Assessment
 
-class Gilbert_AssessmentUnitTests: XCTestCase {
+class Transaction_Data_Formatting: XCTestCase {
     
     var transactionViewModel = TransactionViewModel()
     
