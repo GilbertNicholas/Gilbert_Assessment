@@ -15,8 +15,10 @@ class TextFieldForm: UITextField {
         self.inset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         super.init(frame: frame)
         layer.cornerRadius = 8
-        layer.borderWidth = 1.5
-        layer.borderColor = UIColor.gray.cgColor
+//        layer.borderWidth = 1.5
+        layer.backgroundColor = UIColor.white.cgColor
+//        layer.borderColor = UIColor.gray.cgColor
+        layer.shadowOpacity = 0.2
     }
     
     required init?(coder: NSCoder) {

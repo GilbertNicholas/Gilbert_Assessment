@@ -48,6 +48,7 @@ class DashboardViewController: UIViewController {
     }
     
     private func configureUI() {
+        self.setGradientBackground(colorTop: UIColor.white.cgColor, colorBottom: UIColor.systemBlue.cgColor)
         let menuButton = UIBarButtonItem(image: UIImage(systemName: "list.dash"), style: .done, target: self, action: #selector(didTapMenuBtn))
         menuButton.tintColor = .black
         navigationItem.leftBarButtonItem = menuButton
@@ -60,7 +61,7 @@ class DashboardViewController: UIViewController {
         
         view.addSubview(labelAccNumPlaceHolder)
         labelAccNumPlaceHolder.text = "Account No:"
-        labelAccNumPlaceHolder.textColor = .gray
+        labelAccNumPlaceHolder.textColor = .darkGray
         labelAccNumPlaceHolder.font = UIFont.systemFont(ofSize: 14)
         labelAccNumPlaceHolder.anchor(top: labelName.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 10, paddingLeft: 30)
         

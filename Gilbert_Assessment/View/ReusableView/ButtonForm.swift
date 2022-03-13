@@ -15,8 +15,9 @@ class ButtonForm: UIButton {
         currTitle = text
         super.init(frame: .zero)
         layer.cornerRadius = 20
-        layer.borderWidth = 1
-        layer.borderColor = UIColor.black.cgColor
+        layer.backgroundColor = UIColor.white.cgColor
+//        layer.borderWidth = 1
+//        layer.borderColor = UIColor.black.cgColor
         setTitle(currTitle, for: .normal)
         setTitleColor(.black, for: .normal)
     }

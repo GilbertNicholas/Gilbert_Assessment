@@ -13,27 +13,25 @@ class AuthViewModel {
     @Published var authSuccess: Bool = false
     @Published var authMessage: String = ""
     
-    func authCall(type: APIRequestType, username: String, password: String, completion: @escaping() -> Void) {
+    func authCall(type: APIRequestType, username: String, password: String) {
         self.loadingStatus = true
         let body = apiCall.authBody(username: username, password: password)
         
         apiCall.postData(type: type, responseModel: Auth.self, body: body) { result in
             switch result {
             case .success(let dataAuth):
-                if type == .login {
-                    UserDefaults.standard.set(dataAuth.token, forKey: UserDefaultsType.token.rawValue)
-                    UserDefaults.standard.set(dataAuth.username, forKey: UserDefaultsType.username.rawValue)
-                    UserDefaults.standard.set(dataAuth.accountNo, forKey: UserDefaultsType.accNumber.rawValue)
-                    
-                    if let error = dataAuth.error {
-                        self.authSuccess = false
-                        self.authMessage = error
-                    } else {
-                        self.loadingStatus = false
-                        self.authSuccess = true
+                
+                if let error = dataAuth.error {
+                    self.authSuccess = false
+                    self.authMessage = error
+                } else {
+                    if type == .login {
+                        UserDefaults.standard.set(dataAuth.token, forKey: UserDefaultsType.token.rawValue)
+                        UserDefaults.standard.set(dataAuth.username, forKey: UserDefaultsType.username.rawValue)
+                        UserDefaults.standard.set(dataAuth.accountNo, forKey: UserDefaultsType.accNumber.rawValue)
                     }
-                } else if type == .register {
-                    completion()
+                    
+                    self.authSuccess = true
                 }
             case .failure(let error):
                 print("DebugError: \(error.localizedDescription)")

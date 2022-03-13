@@ -12,18 +12,20 @@ class AuthViewController: UIViewController {
     
     private var subs = Set<AnyCancellable>()
     
-    let usernameTextField = TextFieldForm()
-    let passwordTextField = TextFieldForm()
-    let confirmPasswordTextField = TextFieldForm()
-    let labelSwitch = UILabel()
-    let labelSwitchLink = UILabel()
-    let viewModel = AuthViewModel()
-    lazy var buttonLogin = ButtonForm(text: "Sign In")
-    lazy var buttonRegister = ButtonForm(text: "Sign Up")
+    private let usernameTextField = TextFieldForm()
+    private let passwordTextField = TextFieldForm()
+    private let confirmPasswordTextField = TextFieldForm()
+    private let labelSwitch = UILabel()
+    private let labelSwitchLink = UILabel()
+    private let viewModel = AuthViewModel()
+    private let logoText = UIImageView()
+    
+    lazy var buttonLogin = ButtonForm(text: "Sign in")
+    lazy var buttonRegister = ButtonForm(text: "Sign up")
     
     lazy var labelErrorConfirm = LabelErrorForm()
-    let labelErrorUsername = LabelErrorForm()
-    let labelErrorPassword = LabelErrorForm()
+    private let labelErrorUsername = LabelErrorForm()
+    private let labelErrorPassword = LabelErrorForm()
     
     var delegate: ContentCoordinatorDelegate?
     
@@ -43,24 +45,31 @@ class AuthViewController: UIViewController {
     }
     
     private func configureUI() {
+        self.hideKeyboardWhenTapOutside()
+        self.setGradientBackground(colorTop: UIColor.white.cgColor, colorBottom: UIColor.systemBlue.cgColor)
+        
+        view.addSubview(logoText)
+        logoText.image = UIImage(named: "logoText")
+        logoText.centerX(inView: view, topAnchor: view.safeAreaLayoutGuide.topAnchor, paddingTop: 100)
+        
         view.addSubview(usernameTextField)
         usernameTextField.delegate = self
         usernameTextField.placeholder = "Email"
-        usernameTextField.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 120, paddingLeft: 30, paddingRight: 30, height: 40)
+        usernameTextField.anchor(top: logoText.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 60, paddingLeft: 30, paddingRight: 30, height: 40)
         
         view.addSubview(labelErrorUsername)
         labelErrorUsername.text = "Username can't be empty"
-        labelErrorUsername.anchor(top: usernameTextField.safeAreaLayoutGuide.bottomAnchor, left: view.leftAnchor, paddingTop: 10, paddingLeft: 30)
+        labelErrorUsername.anchor(top: usernameTextField.bottomAnchor, left: view.leftAnchor, paddingTop: 10, paddingLeft: 30)
         
         view.addSubview(passwordTextField)
         passwordTextField.delegate = self
         passwordTextField.placeholder = "Password"
         passwordTextField.isSecureTextEntry = true
-        passwordTextField.anchor(top: labelErrorUsername.safeAreaLayoutGuide.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 20, paddingLeft: 30, paddingRight: 30, height: 40)
+        passwordTextField.anchor(top: labelErrorUsername.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 20, paddingLeft: 30, paddingRight: 30, height: 40)
         
         view.addSubview(labelErrorPassword)
         labelErrorPassword.text = "Password can't be empty"
-        labelErrorPassword.anchor(top: passwordTextField.safeAreaLayoutGuide.bottomAnchor, left: view.leftAnchor, paddingTop: 10, paddingLeft: 30)
+        labelErrorPassword.anchor(top: passwordTextField.bottomAnchor, left: view.leftAnchor, paddingTop: 10, paddingLeft: 30)
         
         if authType == .register {
             view.addSubview(confirmPasswordTextField)
@@ -70,19 +79,20 @@ class AuthViewController: UIViewController {
             confirmPasswordTextField.anchor(top: labelErrorPassword.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 20, paddingLeft: 30, paddingRight: 30, height: 40)
             
             view.addSubview(labelErrorConfirm)
-            labelErrorConfirm.anchor(top: confirmPasswordTextField.safeAreaLayoutGuide.bottomAnchor, left: view.leftAnchor, paddingTop: 10, paddingLeft: 30)
+            labelErrorConfirm.anchor(top: confirmPasswordTextField.bottomAnchor, left: view.leftAnchor, paddingTop: 10, paddingLeft: 30)
         }
         
         let usedButton = self.authType == .login ? buttonLogin : buttonRegister
         view.addSubview(usedButton)
-        usedButton.anchor(top: self.authType == .login ? labelErrorPassword.bottomAnchor : labelErrorConfirm.safeAreaLayoutGuide.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 40, paddingLeft: 20, paddingRight: 20, height: 40)
+        usedButton.anchor(top: self.authType == .login ? labelErrorPassword.bottomAnchor : labelErrorConfirm.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 40, paddingLeft: 20, paddingRight: 20, height: 40)
         usedButton.addTarget(self, action: self.authType == .login ? #selector(handleLogin) : #selector(handleRegister), for: .touchUpInside)
         
         view.addSubview(labelSwitch)
-        labelSwitch.text = self.authType == .login ? "Don't have an account? Sign Up" : "Already have an account? Sign In"
-        labelSwitch.font = UIFont.systemFont(ofSize: 14)
+        labelSwitch.text = self.authType == .login ? "Don't have an account? Sign up" : "Already have an account? Sign in"
+        labelSwitch.textColor = .white
+        labelSwitch.font = UIFont.boldSystemFont(ofSize: 14)
         labelSwitch.isUserInteractionEnabled = true
-        labelSwitch.centerX(inView: view, topAnchor: usedButton.safeAreaLayoutGuide.bottomAnchor, paddingTop: 15)
+        labelSwitch.centerX(inView: view, topAnchor: usedButton.bottomAnchor, paddingTop: 15)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapSwitchType))
         labelSwitch.addGestureRecognizer(tap)
@@ -96,6 +106,7 @@ class AuthViewController: UIViewController {
             let vc = AuthViewController()
             vc.authType = .register
             vc.modalPresentationStyle = .fullScreen
+            vc.modalTransitionStyle = .crossDissolve
             self.present(vc, animated: true, completion: nil)
         } else {
             self.dismiss(animated: true, completion: nil)
@@ -113,22 +124,36 @@ class AuthViewController: UIViewController {
         
         viewModel.$authSuccess.sink { authStatus in
             if authStatus {
-                self.delegate?.didChangeContent()
+                if self.authType == .login {
+                    self.delegate?.didChangeContent()
+                } else {
+                    self.showAlert(title: "Success!", message: "Register Success", type: .success)
+                }
+                
             }
         }.store(in: &subs)
         
         viewModel.$authMessage.sink { errorMsg in
             
             if !errorMsg.isEmpty {
-                self.showAlert(title: "Failed Login", message: errorMsg)
+                self.showAlert(title: "Failed Login", message: errorMsg, type: .failed)
             }
         }.store(in: &subs)
     }
     
-    private func showAlert(title: String, message: String) {
+    private func showAlert(title: String, message: String, type: AlertType) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "Close", style: .default, handler: nil)
-        alertController.addAction(action)
+        if type == .failed {
+            let action = UIAlertAction(title: "Close", style: .default, handler: nil)
+            alertController.addAction(action)
+        } else {
+            let action = UIAlertAction(title: "Close", style: .default) { _ in
+                self.dismiss(animated: true, completion: nil)
+            }
+            alertController.addAction(action)
+        }
+        
+        
         present(alertController, animated: true, completion: nil)
     }
     
@@ -138,9 +163,7 @@ class AuthViewController: UIViewController {
                 labelErrorUsername.isHidden = !username.isEmpty
                 labelErrorPassword.isHidden = !password.isEmpty
             } else {
-                viewModel.authCall(type: .login, username: username, password: password) {
-                    
-                }
+                viewModel.authCall(type: .login, username: username, password: password)
             }
         }
     }
@@ -156,11 +179,7 @@ class AuthViewController: UIViewController {
                 labelErrorConfirm.text = "Confirm password doesn't match"
                 labelErrorConfirm.isHidden = false
             } else {
-                viewModel.authCall(type: .register, username: username, password: password) {
-                    self.viewModel.authCall(type: .login, username: username, password: password) {
-                        self.dismiss(animated: true, completion: nil)
-                    }
-                }
+                viewModel.authCall(type: .register, username: username, password: password)
             }
         }
     }
