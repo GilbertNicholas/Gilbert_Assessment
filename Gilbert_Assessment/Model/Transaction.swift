@@ -10,7 +10,7 @@ import Foundation
 struct Transaction: Codable {
     let status: String
     let data: [TranData]?
-    let error: String?
+    let error: ErrorResponse?
 }
 
 struct TranData: Codable {

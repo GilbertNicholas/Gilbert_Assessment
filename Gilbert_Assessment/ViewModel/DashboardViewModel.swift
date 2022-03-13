@@ -18,14 +18,11 @@ class DashboardViewModel {
         apiCall.requestData(type: .balance, responseModel: Balance.self) { result in
             switch result {
             case .success(let balanceData):
-                
                 if let error = balanceData.error?.message {
                     self.errorMsg = error
                 } else if let balance = balanceData.balance {
                     self.balance = balance
                 }
-                
-                
             case .failure(let error):
                 print("DebugError: \(error.localizedDescription)")
                 self.errorMsg = error.localizedDescription

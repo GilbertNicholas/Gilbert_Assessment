@@ -23,7 +23,7 @@ class TransactionViewModel {
                     self.transactionData = self.formattingDateTransaction(transactionData: tranData)
                 }
                 
-                if let error = tranData.error {
+                if let error = tranData.error?.message {
                     self.error = error
                 }
             case .failure(let error):

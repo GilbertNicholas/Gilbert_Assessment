@@ -30,7 +30,6 @@ class AuthViewModel {
                         UserDefaults.standard.set(dataAuth.username, forKey: UserDefaultsType.username.rawValue)
                         UserDefaults.standard.set(dataAuth.accountNo, forKey: UserDefaultsType.accNumber.rawValue)
                     }
-                    
                     self.authSuccess = true
                 }
             case .failure(let error):

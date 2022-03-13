@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		02A6381D27DDD0ED00FDD0B4 /* Gilbert_AssessmentUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A6381C27DDD0ED00FDD0B4 /* Gilbert_AssessmentUnitTests.swift */; };
-		02A6382527DDD66900FDD0B4 /* MockAPIDataSourceDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A6382427DDD66900FDD0B4 /* MockAPIDataSourceDependency.swift */; };
 		02D9D3AE27DC4E2400922243 /* APIDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D9D3AD27DC4E2400922243 /* APIDataSource.swift */; };
 		02D9D3B127DC5A1E00922243 /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D9D3B027DC5A1E00922243 /* Balance.swift */; };
 		02D9D3B327DC5B5800922243 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D9D3B227DC5B5800922243 /* ErrorResponse.swift */; };
@@ -58,7 +57,6 @@
 /* Begin PBXFileReference section */
 		02A6381A27DDD0ED00FDD0B4 /* Gilbert_AssessmentUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Gilbert_AssessmentUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		02A6381C27DDD0ED00FDD0B4 /* Gilbert_AssessmentUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gilbert_AssessmentUnitTests.swift; sourceTree = "<group>"; };
-		02A6382427DDD66900FDD0B4 /* MockAPIDataSourceDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIDataSourceDependency.swift; sourceTree = "<group>"; };
 		02D9D3AD27DC4E2400922243 /* APIDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDataSource.swift; sourceTree = "<group>"; };
 		02D9D3B027DC5A1E00922243 /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
 		02D9D3B227DC5B5800922243 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
@@ -121,18 +119,9 @@
 		02A6381B27DDD0ED00FDD0B4 /* Gilbert_AssessmentUnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				02A6382327DDD63C00FDD0B4 /* MockingAPIService */,
 				02A6381C27DDD0ED00FDD0B4 /* Gilbert_AssessmentUnitTests.swift */,
 			);
 			path = Gilbert_AssessmentUnitTests;
-			sourceTree = "<group>";
-		};
-		02A6382327DDD63C00FDD0B4 /* MockingAPIService */ = {
-			isa = PBXGroup;
-			children = (
-				02A6382427DDD66900FDD0B4 /* MockAPIDataSourceDependency.swift */,
-			);
-			path = MockingAPIService;
 			sourceTree = "<group>";
 		};
 		02A6382727DDEDFF00FDD0B4 /* TransactionView */ = {
@@ -223,10 +212,10 @@
 		02DD585827DAF9CF00C8F159 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				02DD58BB27DB986600C8F159 /* ReusableView */,
 				02A6382927DDEE3E00FDD0B4 /* Main */,
 				02A6382827DDEE1C00FDD0B4 /* TransferView */,
 				02A6382727DDEDFF00FDD0B4 /* TransactionView */,
-				02DD58BB27DB986600C8F159 /* ReusableView */,
 				02DD58AA27DB483600C8F159 /* SideMenuViewController.swift */,
 				02DD58AC27DB483F00C8F159 /* DashboardViewController.swift */,
 				02DD58BE27DBB73800C8F159 /* AuthViewController.swift */,
@@ -437,7 +426,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02A6382527DDD66900FDD0B4 /* MockAPIDataSourceDependency.swift in Sources */,
 				02A6381D27DDD0ED00FDD0B4 /* Gilbert_AssessmentUnitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
