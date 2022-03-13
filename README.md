@@ -14,7 +14,7 @@ This app can do some interesting features, such as:
 - Transfer balance
 
 ## Developer Guide
-iBank is built in Swift 5 and using Xcode 13.2.1. <br>
+iBank is using Xcode 13.2.1. and Swift 5 programming languange <br>
 Because of cocoapods Alamofire dependency, please install the pod before running project using command: 
 <br> pod install
 
@@ -27,6 +27,7 @@ Because of cocoapods Alamofire dependency, please install the pod before running
 ▸ Swift 5 Programming Language<br>
 ▸ UIKit <br>
 ▸ MVVM architecture<br>
+▸ Unit Test<br>
 ▸ Cocoapods<br>
 ▸ Alamofire<br>
 ▸ Xcode<br>
