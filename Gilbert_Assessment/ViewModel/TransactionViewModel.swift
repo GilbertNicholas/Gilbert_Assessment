@@ -15,6 +15,7 @@ class TransactionViewModel {
     @Published var error: String = ""
     
     func getTransactionData() {
+        loadingStatus = true
         apiCall.requestData(type: .transactions, responseModel: Transaction.self) { result in
             print("DEBUGTRAN: \(result)")
             switch result {
@@ -29,6 +30,7 @@ class TransactionViewModel {
             case .failure(let error):
                 print("DebugError: \(error.localizedDescription)")
             }
+            self.loadingStatus = false
         }
     }
 }

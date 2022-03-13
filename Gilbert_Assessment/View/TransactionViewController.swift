@@ -20,6 +20,12 @@ class TransactionViewController: UIViewController {
         return table
     }()
     
+    lazy var indicator: UIActivityIndicatorView = {
+        let ai = UIActivityIndicatorView()
+        ai.hidesWhenStopped = true
+        return ai
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,12 +44,23 @@ class TransactionViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.addConstraintsToFillView(view)
+        
+        view.addSubview(indicator)
+        indicator.addConstraintsToFillView(view)
     }
     
     private func configureObserver() {
         viewModel.$transactionData.sink { tranData in
             self.transaction = tranData
             self.tableView.reloadData()
+        }.store(in: &subs)
+        
+        viewModel.$loadingStatus.sink { loadingStatus in
+            if loadingStatus {
+                self.indicator.startAnimating()
+            } else {
+                self.indicator.stopAnimating()
+            }
         }.store(in: &subs)
     }
 }

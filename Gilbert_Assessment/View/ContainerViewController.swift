@@ -16,15 +16,19 @@ class ContainerViewController: UIViewController {
     let menuVC = MenuViewController()
     let dashVC = DashboardViewController()
     
-    lazy var transactionVC = TransactionViewController()
-    lazy var transferVC = TransferViewController()
-    
     var navVC: UINavigationController?
+    
+    let viewOpac = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         currVC = dashVC
         addChildVC()
+        viewOpac.backgroundColor = .black
+        viewOpac.layer.opacity = 0.8
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissMenuTap))
+        viewOpac.addGestureRecognizer(tap)
     }
     
     private func addChildVC() {
@@ -40,19 +44,19 @@ class ContainerViewController: UIViewController {
         navVC.didMove(toParent: self)
         self.navVC = navVC
     }
-
+    
+    @objc func dismissMenuTap() {
+        didTapMenu()
+    }
 }
 
 extension ContainerViewController: DashboardViewControllerDelegate {
     func didTapMenu() {
-        toggleMenu()
-    }
-    
-    func toggleMenu() {
         switch stateMenu {
         case .opened:
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut) {
                 self.navVC?.view.frame.origin.x = 0
+                self.viewOpac.removeFromSuperview()
             } completion: { [weak self] done in
                 if done {
                     self?.stateMenu = .closed
@@ -61,6 +65,8 @@ extension ContainerViewController: DashboardViewControllerDelegate {
         case .closed:
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut) {
                 self.navVC?.view.frame.origin.x = self.dashVC.view.frame.size.width - 100
+                self.navVC!.view.insertSubview(self.viewOpac, at: 1)
+                self.viewOpac.addConstraintsToFillView((self.navVC?.view)!)
             } completion: { [weak self] done in
                 if done {
                     self?.stateMenu = .opened
@@ -72,15 +78,18 @@ extension ContainerViewController: DashboardViewControllerDelegate {
 
 extension ContainerViewController: MenuViewControllerDelegate {
     func didSelectOption(menuOption: MenuOptions) {
-        toggleMenu()
+        if stateMenu == .opened {
+            didTapMenu()
+        }
         switch menuOption {
         case .dashboard:
             self.resetToHome()
         case .transaction:
-            let vc = transactionVC
+            let vc = TransactionViewController()
             self.addVC(vc: vc)
         case .transfer:
-            let vc = transferVC
+            let vc = TransferViewController()
+            vc.delegate = self
             self.addVC(vc: vc)
         case .logout:
             self.logout()
@@ -101,10 +110,12 @@ extension ContainerViewController: MenuViewControllerDelegate {
     func resetToHome() {
         removeCurrVC()
         currVC?.title = "Dashboard"
+        currVC?.viewDidLoad()
     }
     
     func removeCurrVC() {
         if currVC != dashVC {
+            currVC?.dismiss(animated: false, completion: nil)
             currVC?.view.removeFromSuperview()
             currVC?.didMove(toParent: nil)
             currVC = dashVC

@@ -28,6 +28,8 @@ class TransferViewController: UIViewController {
     
     private let viewModel = TransferViewModel()
     
+    var delegate: MenuViewControllerDelegate?
+    
     private let labelFrom: UILabel = {
         let lbl = UILabel()
         lbl.font = UIFont.boldSystemFont(ofSize: 24)
@@ -49,9 +51,6 @@ class TransferViewController: UIViewController {
         title = "Transfer"
         view.backgroundColor = .systemBackground
         configureObservers()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
         configureUI()
     }
 
@@ -81,7 +80,7 @@ class TransferViewController: UIViewController {
         textFieldAmount.anchor(top: labelAmountPlaceholder.bottomAnchor, left: choosePayeesView.leftAnchor, right: choosePayeesView.rightAnchor, paddingTop: 10, height: 40)
         
         view.addSubview(labelErrorAmount)
-        labelErrorAmount.text = "Amount can't be empty"
+        labelErrorAmount.text = "Transfer amount can't be empty"
         labelErrorAmount.anchor(top: textFieldAmount.bottomAnchor, left: choosePayeesView.leftAnchor, paddingTop: 5)
         
         view.addSubview(labelDescriptionPlaceholder)
@@ -120,13 +119,13 @@ class TransferViewController: UIViewController {
         
         viewModel.$transferSuccess.sink { transferStatus in
             if transferStatus {
-                self.showAlert(title: "Success!", message: "")
+                self.showAlert(title: "Success", message: "", type: .success)
             }
         }.store(in: &subs)
         
         viewModel.$errorMessage.sink { errorMessage in
             if !errorMessage.isEmpty {
-                self.showAlert(title: "Transfer Failed", message: errorMessage)
+                self.showAlert(title: "Transfer Failed", message: errorMessage, type: .failed)
             }
         }.store(in: &subs)
     }
@@ -156,10 +155,18 @@ class TransferViewController: UIViewController {
         }
     }
     
-    private func showAlert(title: String, message: String) {
+    private func showAlert(title: String, message: String, type: AlertType) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "Close", style: .default, handler: nil)
-        alertController.addAction(action)
+        if type == .failed {
+            let action = UIAlertAction(title: "Close", style: .default, handler: nil)
+            alertController.addAction(action)
+        } else {
+            let action = UIAlertAction(title: "Close", style: .default) { _ in
+                self.delegate?.didSelectOption(menuOption: .dashboard)
+            }
+            alertController.addAction(action)
+        }
+        
         present(alertController, animated: true, completion: nil)
     }
     

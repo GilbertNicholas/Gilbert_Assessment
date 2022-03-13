@@ -43,7 +43,7 @@ class MenuViewController: UIViewController {
         view.addSubview(tableView)
         tableView.anchor(top: userLabel.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 10)
         
-        view.backgroundColor = .gray
+        view.backgroundColor = .systemBlue
     }
 }
 

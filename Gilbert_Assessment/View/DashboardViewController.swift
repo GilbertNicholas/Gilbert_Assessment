@@ -73,12 +73,12 @@ class DashboardViewController: UIViewController {
         
         view.addSubview(labelBalancePlaceholder)
         labelBalancePlaceholder.text = "Your Balance:"
-        labelBalancePlaceholder.font = UIFont.boldSystemFont(ofSize: 22)
+        labelBalancePlaceholder.font = UIFont.systemFont(ofSize: 22)
         labelBalancePlaceholder.centerX(inView: view, topAnchor: labelAccNum.bottomAnchor, paddingTop: 80)
         
         view.addSubview(labelBalance)
-        labelBalance.font = UIFont.boldSystemFont(ofSize: 30)
-        labelBalance.centerX(inView: view, topAnchor: labelBalancePlaceholder.bottomAnchor, paddingTop: 10)
+        labelBalance.font = UIFont.boldSystemFont(ofSize: 32)
+        labelBalance.centerX(inView: view, topAnchor: labelBalancePlaceholder.bottomAnchor, paddingTop: 20)
         
         view.addSubview(indicator)
         indicator.center(inView: view)

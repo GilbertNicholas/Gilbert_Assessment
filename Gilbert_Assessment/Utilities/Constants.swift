@@ -56,3 +56,8 @@ enum TransactionType: String {
     case transfer = "transfer"
     case received = "received"
 }
+
+enum AlertType {
+    case success
+    case failed
+}
