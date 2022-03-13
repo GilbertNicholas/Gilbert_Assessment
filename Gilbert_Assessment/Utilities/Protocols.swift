@@ -26,3 +26,7 @@ protocol ContentCoordinatorDelegate {
 protocol PayeesViewControllerDelegate {
     func didSelectPayee(selectedPayee: PayeesData)
 }
+
+protocol MockAPIDataSource {
+    func login(username: String, password: String, completion: @escaping (Result<Void, Error>) -> Void)
+}

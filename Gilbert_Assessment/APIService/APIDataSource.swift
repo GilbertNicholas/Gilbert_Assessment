@@ -25,8 +25,6 @@ class APIDataSource {
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         request.setValue(UserDefaults.standard.string(forKey: UserDefaultsType.token.rawValue), forHTTPHeaderField: "Authorization")
         
-//        let responseModel = APIRequestType.getModelResponse(type)
-        
         AF.request(request).responseDecodable(of: responseModel) { response in
             switch response.result {
             case .success(let response):

@@ -39,9 +39,6 @@ extension MainPlaceholderViewController: ContentCoordinatorDelegate {
     private func addVC(vc: UIViewController) {
         removeCurrVC()
         
-//        vc.modalPresentationStyle = .fullScreen
-//        currVC?.present(vc, animated: true, completion: nil)
-        
         addChild(vc)
         view.addSubview(vc.view)
         vc.view.frame = view.frame
@@ -52,8 +49,7 @@ extension MainPlaceholderViewController: ContentCoordinatorDelegate {
     
     private func removeCurrVC() {
         if let currVC = currVC {
-//            currVC.dismiss(animated: true, completion: nil)
-            
+            currVC.dismiss(animated: true, completion: nil)
             currVC.view.removeFromSuperview()
             currVC.didMove(toParent: nil)
             self.currVC = self

@@ -79,7 +79,7 @@ extension TransactionViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return transaction[section][0].transactionDate.iso8601withFractionalSeconds.dashboardFormat()
+        return transaction[section][0].transactionDate.formattingIso8601.readableFormat()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -87,13 +87,5 @@ extension TransactionViewController: UITableViewDelegate, UITableViewDataSource 
         
         cell.configureContent(data: transaction[indexPath.section][indexPath.row])
         return cell
-//        if indexPath.row == 0 {
-//            let cell = UITableViewCell()
-//            var content = cell.defaultContentConfiguration()
-//            content.text = "SECTION"
-//            cell.contentConfiguration = content
-//        } else {
-//
-//        }
     }
 }

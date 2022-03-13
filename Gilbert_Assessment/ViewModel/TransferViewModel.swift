@@ -21,11 +21,11 @@ class TransferViewModel {
             print("DebugTransfer: \(result)")
             switch result {
             case .success(let transferResp):
-                if transferResp.transactionId != nil {
-                    self.transferSuccess = true
-                } else if let error = transferResp.error {
+                if let error = transferResp.error {
                     self.transferSuccess = false
                     self.errorMessage = error
+                } else {
+                    self.transferSuccess = true
                 }
             case .failure(let error):
                 print("DebugError: \(error.localizedDescription)")

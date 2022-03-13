@@ -17,11 +17,10 @@ class TransactionViewModel {
     func getTransactionData() {
         loadingStatus = true
         apiCall.requestData(type: .transactions, responseModel: Transaction.self) { result in
-            print("DEBUGTRAN: \(result)")
             switch result {
             case .success(let tranData):
                 if let tranData = tranData.data {
-                    self.formattingDateTransaction(transactionData: tranData)
+                    self.transactionData = self.formattingDateTransaction(transactionData: tranData)
                 }
                 
                 if let error = tranData.error {
@@ -29,39 +28,27 @@ class TransactionViewModel {
                 }
             case .failure(let error):
                 print("DebugError: \(error.localizedDescription)")
-                self.loadingStatus = false
             }
-            
+            self.loadingStatus = false
         }
     }
     
-    private func formattingDateTransaction(transactionData: [TranData]) {
-        let datesInData = transactionData.map { $0.transactionDate.iso8601withFractionalSeconds.removeTimeStamp() }
-        let sortDate = Set(datesInData).sorted(by: { $0 > $1 })
+    func formattingDateTransaction(transactionData: [TranData]) -> [[TranData]] {
+        var dateFormatted: [Date] = []
+        for tran in transactionData {
+            let date = tran.transactionDate.formattingIso8601.removeDateTimestamp()
+            dateFormatted.append(date)
+        }
+        let sortedDate = Set(dateFormatted).sorted(by: { $0 > $1 })
+    
         var data: [[TranData]] = []
         
-        
-        for sortDate in sortDate {
+        for sortDate in sortedDate {
             let filter = transactionData.filter { tran in
-                tran.transactionDate.iso8601withFractionalSeconds.removeTimeStamp() == sortDate
+                tran.transactionDate.formattingIso8601.removeDateTimestamp() == sortDate
             }
             data.append(filter)
         }
-        self.transactionData = data
-        self.loadingStatus = false
-//        for sortDate in sortDate {
-//            var groupTranDate: [TranData] = []
-//            for tranData in transactionData {
-//                if tranData.transactionDate.iso8601withFractionalSeconds.removeTimeStamp() == sortDate {
-//                    groupTranDate.append(tranData)
-//                } else {
-//                    break
-//                }
-//            }
-//            print("DATE: \(groupTranDate)")
-//            data.append(groupTranDate)
-//        }
-//        self.transactionData = data
-//        self.loadingStatus = false
+        return data
     }
 }

@@ -40,12 +40,9 @@ class DashboardViewController: UIViewController {
         view.backgroundColor = .systemBackground
         title = "Dashboard"
         
+        viewModel.getBalance()
         configureUI()
         configureObserver()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        viewModel.getBalance()
     }
     
     private func configureUI() {

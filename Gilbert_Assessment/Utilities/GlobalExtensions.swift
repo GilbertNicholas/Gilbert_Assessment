@@ -75,12 +75,6 @@ extension UIView {
         }
     }
     
-    func setDimensions(width: CGFloat, height: CGFloat) {
-        translatesAutoresizingMaskIntoConstraints = false
-        widthAnchor.constraint(equalToConstant: width).isActive = true
-        heightAnchor.constraint(equalToConstant: height).isActive = true
-    }
-    
     func addConstraintsToFillView(_ view: UIView, top: NSLayoutYAxisAnchor) {
         translatesAutoresizingMaskIntoConstraints = false
         anchor(top: top, left: view.leftAnchor,
@@ -88,12 +82,18 @@ extension UIView {
     }
 }
 
-extension UILabel {
-    func setHighlighted(_ text: String, with search: String) {
-        let attributedText = NSMutableAttributedString(string: text)
-        let range = NSString(string: text).range(of: search, options: .caseInsensitive)
-        attributedText.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 14), range: range)
-        self.attributedText = attributedText
+extension Date {
+    func removeDateTimestamp() -> Date {
+        guard let date = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: self)) else {
+            return Date()
+        }
+        return date
+    }
+    
+    func readableFormat() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d MMM yyyy"
+        return dateFormatter.string(from: self)
     }
 }
 
@@ -118,40 +118,14 @@ extension UIViewController {
     }
 }
 
-extension ISO8601DateFormatter {
-    convenience init(_ formatOptions: Options) {
-        self.init()
-        self.formatOptions = formatOptions
-    }
-}
-
-extension Formatter {
-    static let iso8601withFractionalSeconds = ISO8601DateFormatter([.withInternetDateTime, .withFractionalSeconds])
-}
-
-extension Date {
-    var iso8601withFractionalSeconds: String { return Formatter.iso8601withFractionalSeconds.string(from: self) }
-}
-
 extension String {
-    var iso8601withFractionalSeconds: Date { return Formatter.iso8601withFractionalSeconds.date(from: self)! }
-}
-
-extension Sequence where Element: Hashable {
-    func uniqued() -> [Element] {
-        var set = Set<Element>()
-        return filter { set.insert($0).inserted }
-    }
-}
-
-extension Date {
-    func removeTimeStamp() -> Date {
-        return Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: self))!
-    }
-    
-    func dashboardFormat() -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "d MMM yyyy"
-        return formatter.string(from: self)
+    var formattingIso8601: Date {
+        let formatter = ISO8601DateFormatter()
+        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        
+        if let date = formatter.date(from: self) {
+            return date
+        }
+        return Date()
     }
 }

@@ -123,7 +123,7 @@ class TransferViewController: UIViewController {
         
         viewModel.$transferSuccess.sink { transferStatus in
             if transferStatus {
-                self.showAlert(title: "Success", message: "", type: .success)
+                self.showAlert(title: "Transfer Success!", message: "", type: .success)
             }
         }.store(in: &subs)
         

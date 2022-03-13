@@ -11,13 +11,13 @@ class SideMenuViewController: UIViewController {
     
     var delegate: MenuViewControllerDelegate?
     
-    let tableView: UITableView = {
+    private let tableView: UITableView = {
         let table = UITableView()
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         return table
     }()
     
-    let userLabel: UILabel = {
+    private let userLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 22)

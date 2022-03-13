@@ -13,22 +13,21 @@ class ContentContainerViewController: UIViewController {
     private var currVC: UIViewController?
     
     var delegate: ContentCoordinatorDelegate?
-    let menuVC = SideMenuViewController()
-    let dashVC = DashboardViewController()
+    private let menuVC = SideMenuViewController()
+    private let dashVC = DashboardViewController()
     
-    var navVC: UINavigationController?
-    
-    let viewOpac = UIView()
+    private var navVC: UINavigationController?
+    private let viewOpacityDark = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         currVC = dashVC
         addChildVC()
-        viewOpac.backgroundColor = .black
-        viewOpac.layer.opacity = 0.8
+        viewOpacityDark.backgroundColor = .black
+        viewOpacityDark.layer.opacity = 0.8
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissMenuTap))
-        viewOpac.addGestureRecognizer(tap)
+        viewOpacityDark.addGestureRecognizer(tap)
     }
     
     private func addChildVC() {
@@ -56,7 +55,7 @@ extension ContentContainerViewController: DashboardViewControllerDelegate {
         case .opened:
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut) {
                 self.navVC?.view.frame.origin.x = 0
-                self.viewOpac.removeFromSuperview()
+                self.viewOpacityDark.removeFromSuperview()
             } completion: { [weak self] done in
                 if done {
                     self?.stateMenu = .closed
@@ -66,8 +65,8 @@ extension ContentContainerViewController: DashboardViewControllerDelegate {
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut) {
                 if let navVC = self.navVC {
                     navVC.view.frame.origin.x = self.dashVC.view.frame.size.width - 100
-                    navVC.view.insertSubview(self.viewOpac, at: 1)
-                    self.viewOpac.addConstraintsToFillView(navVC.view, top: navVC.view.topAnchor)
+                    navVC.view.insertSubview(self.viewOpacityDark, at: 1)
+                    self.viewOpacityDark.addConstraintsToFillView(navVC.view, top: navVC.view.topAnchor)
                 }
             } completion: { [weak self] done in
                 if done {

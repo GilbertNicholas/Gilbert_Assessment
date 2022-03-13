@@ -9,21 +9,21 @@ import UIKit
 
 class ChoosePayeesUIView: UIView {
 
-    var labelName: UILabel = {
+    let labelName: UILabel = {
         let lblName = UILabel()
         lblName.text = "Choose Receipient"
         lblName.font = UIFont.boldSystemFont(ofSize: 18)
         return lblName
     }()
     
-    var labelAccNum: UILabel = {
+    let labelAccNum: UILabel = {
         let lblAccNum = UILabel()
         lblAccNum.text = "-"
         lblAccNum.textColor = .gray
         return lblAccNum
     }()
     
-    let image: UIImageView = {
+    private let image: UIImageView = {
         let img = UIImageView()
         img.image = UIImage(systemName: "chevron.forward.circle")
         img.tintColor = .black
