@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		02A6381D27DDD0ED00FDD0B4 /* Gilbert_AssessmentUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A6381C27DDD0ED00FDD0B4 /* Gilbert_AssessmentUnitTests.swift */; };
+		02A6382527DDD66900FDD0B4 /* MockingAPIDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A6382427DDD66900FDD0B4 /* MockingAPIDataSource.swift */; };
 		02D9D3AE27DC4E2400922243 /* APIDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D9D3AD27DC4E2400922243 /* APIDataSource.swift */; };
 		02D9D3B127DC5A1E00922243 /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D9D3B027DC5A1E00922243 /* Balance.swift */; };
 		02D9D3B327DC5B5800922243 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D9D3B227DC5B5800922243 /* ErrorResponse.swift */; };
@@ -17,7 +18,7 @@
 		02D9D3BB27DC6E3500922243 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D9D3BA27DC6E3500922243 /* DashboardViewModel.swift */; };
 		02D9D3BD27DC6E4100922243 /* TransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D9D3BC27DC6E4100922243 /* TransferViewModel.swift */; };
 		02D9D3BF27DC6E4E00922243 /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D9D3BE27DC6E4E00922243 /* TransactionViewModel.swift */; };
-		02D9D3C127DC7A9300922243 /* ContentPlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D9D3C027DC7A9300922243 /* ContentPlaceholderViewController.swift */; };
+		02D9D3C127DC7A9300922243 /* MainPlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D9D3C027DC7A9300922243 /* MainPlaceholderViewController.swift */; };
 		02D9D3C327DC8DFC00922243 /* Transfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D9D3C227DC8DFC00922243 /* Transfer.swift */; };
 		02D9D3C727DCAE0100922243 /* LabelErrorForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D9D3C627DCAE0100922243 /* LabelErrorForm.swift */; };
 		02D9D3CB27DD08B000922243 /* ChoosePayeesUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D9D3CA27DD08B000922243 /* ChoosePayeesUIView.swift */; };
@@ -26,11 +27,11 @@
 		02D9D3D127DD24FE00922243 /* LabelPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D9D3D027DD24FE00922243 /* LabelPlaceholder.swift */; };
 		02DD584327DAF4EE00C8F159 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD584227DAF4EE00C8F159 /* AppDelegate.swift */; };
 		02DD584527DAF4EE00C8F159 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD584427DAF4EE00C8F159 /* SceneDelegate.swift */; };
-		02DD584727DAF4EE00C8F159 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD584627DAF4EE00C8F159 /* ContainerViewController.swift */; };
+		02DD584727DAF4EE00C8F159 /* ContentContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD584627DAF4EE00C8F159 /* ContentContainerViewController.swift */; };
 		02DD584C27DAF4F000C8F159 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02DD584B27DAF4F000C8F159 /* Assets.xcassets */; };
 		02DD584F27DAF4F000C8F159 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02DD584D27DAF4F000C8F159 /* LaunchScreen.storyboard */; };
 		02DD58A827DB47DE00C8F159 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58A727DB47DE00C8F159 /* Constants.swift */; };
-		02DD58AB27DB483600C8F159 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58AA27DB483600C8F159 /* MenuViewController.swift */; };
+		02DD58AB27DB483600C8F159 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58AA27DB483600C8F159 /* SideMenuViewController.swift */; };
 		02DD58AD27DB483F00C8F159 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58AC27DB483F00C8F159 /* DashboardViewController.swift */; };
 		02DD58AF27DB48FE00C8F159 /* GlobalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58AE27DB48FE00C8F159 /* GlobalExtensions.swift */; };
 		02DD58B127DB4A6700C8F159 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58B027DB4A6700C8F159 /* Protocols.swift */; };
@@ -40,7 +41,6 @@
 		02DD58BA27DB752F00C8F159 /* TransactionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58B927DB752F00C8F159 /* TransactionViewCell.swift */; };
 		02DD58BD27DB989100C8F159 /* TextFieldForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58BC27DB989100C8F159 /* TextFieldForm.swift */; };
 		02DD58BF27DBB73800C8F159 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58BE27DBB73800C8F159 /* AuthViewController.swift */; };
-		02DD58C127DBB74300C8F159 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58C027DBB74300C8F159 /* RegisterViewController.swift */; };
 		02DD58C327DBC23A00C8F159 /* ButtonForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD58C227DBC23A00C8F159 /* ButtonForm.swift */; };
 		07E10338F0D8BA17F045FC71 /* Pods_Gilbert_Assessment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7DAC0EC6719D522DF7FC500 /* Pods_Gilbert_Assessment.framework */; };
 /* End PBXBuildFile section */
@@ -58,6 +58,7 @@
 /* Begin PBXFileReference section */
 		02A6381A27DDD0ED00FDD0B4 /* Gilbert_AssessmentUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Gilbert_AssessmentUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		02A6381C27DDD0ED00FDD0B4 /* Gilbert_AssessmentUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gilbert_AssessmentUnitTests.swift; sourceTree = "<group>"; };
+		02A6382427DDD66900FDD0B4 /* MockingAPIDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockingAPIDataSource.swift; sourceTree = "<group>"; };
 		02D9D3AD27DC4E2400922243 /* APIDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDataSource.swift; sourceTree = "<group>"; };
 		02D9D3B027DC5A1E00922243 /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
 		02D9D3B227DC5B5800922243 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
@@ -67,7 +68,7 @@
 		02D9D3BA27DC6E3500922243 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		02D9D3BC27DC6E4100922243 /* TransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewModel.swift; sourceTree = "<group>"; };
 		02D9D3BE27DC6E4E00922243 /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
-		02D9D3C027DC7A9300922243 /* ContentPlaceholderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPlaceholderViewController.swift; sourceTree = "<group>"; };
+		02D9D3C027DC7A9300922243 /* MainPlaceholderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPlaceholderViewController.swift; sourceTree = "<group>"; };
 		02D9D3C227DC8DFC00922243 /* Transfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transfer.swift; sourceTree = "<group>"; };
 		02D9D3C627DCAE0100922243 /* LabelErrorForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelErrorForm.swift; sourceTree = "<group>"; };
 		02D9D3CA27DD08B000922243 /* ChoosePayeesUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePayeesUIView.swift; sourceTree = "<group>"; };
@@ -77,12 +78,12 @@
 		02DD583F27DAF4EE00C8F159 /* Gilbert_Assessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gilbert_Assessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02DD584227DAF4EE00C8F159 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02DD584427DAF4EE00C8F159 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		02DD584627DAF4EE00C8F159 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		02DD584627DAF4EE00C8F159 /* ContentContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentContainerViewController.swift; sourceTree = "<group>"; };
 		02DD584B27DAF4F000C8F159 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		02DD584E27DAF4F000C8F159 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02DD585027DAF4F000C8F159 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02DD58A727DB47DE00C8F159 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		02DD58AA27DB483600C8F159 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		02DD58AA27DB483600C8F159 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		02DD58AC27DB483F00C8F159 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		02DD58AE27DB48FE00C8F159 /* GlobalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalExtensions.swift; sourceTree = "<group>"; };
 		02DD58B027DB4A6700C8F159 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
@@ -92,7 +93,6 @@
 		02DD58B927DB752F00C8F159 /* TransactionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewCell.swift; sourceTree = "<group>"; };
 		02DD58BC27DB989100C8F159 /* TextFieldForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldForm.swift; sourceTree = "<group>"; };
 		02DD58BE27DBB73800C8F159 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
-		02DD58C027DBB74300C8F159 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		02DD58C227DBC23A00C8F159 /* ButtonForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonForm.swift; sourceTree = "<group>"; };
 		2C191F57DA9041B00B59F49A /* Pods-Gilbert_Assessment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gilbert_Assessment.release.xcconfig"; path = "Target Support Files/Pods-Gilbert_Assessment/Pods-Gilbert_Assessment.release.xcconfig"; sourceTree = "<group>"; };
 		8FC33CB69D68C617FDBD581D /* Pods-Gilbert_Assessment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gilbert_Assessment.debug.xcconfig"; path = "Target Support Files/Pods-Gilbert_Assessment/Pods-Gilbert_Assessment.debug.xcconfig"; sourceTree = "<group>"; };
@@ -121,9 +121,45 @@
 		02A6381B27DDD0ED00FDD0B4 /* Gilbert_AssessmentUnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				02A6382327DDD63C00FDD0B4 /* MockingAPIService */,
 				02A6381C27DDD0ED00FDD0B4 /* Gilbert_AssessmentUnitTests.swift */,
 			);
 			path = Gilbert_AssessmentUnitTests;
+			sourceTree = "<group>";
+		};
+		02A6382327DDD63C00FDD0B4 /* MockingAPIService */ = {
+			isa = PBXGroup;
+			children = (
+				02A6382427DDD66900FDD0B4 /* MockingAPIDataSource.swift */,
+			);
+			path = MockingAPIService;
+			sourceTree = "<group>";
+		};
+		02A6382727DDEDFF00FDD0B4 /* TransactionView */ = {
+			isa = PBXGroup;
+			children = (
+				02DD58B427DB59C100C8F159 /* TransactionViewController.swift */,
+				02DD58B827DB74FC00C8F159 /* TransactionViewCell */,
+			);
+			path = TransactionView;
+			sourceTree = "<group>";
+		};
+		02A6382827DDEE1C00FDD0B4 /* TransferView */ = {
+			isa = PBXGroup;
+			children = (
+				02DD58B227DB59AF00C8F159 /* TransferViewController.swift */,
+				02D9D3CA27DD08B000922243 /* ChoosePayeesUIView.swift */,
+			);
+			path = TransferView;
+			sourceTree = "<group>";
+		};
+		02A6382927DDEE3E00FDD0B4 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				02DD584627DAF4EE00C8F159 /* ContentContainerViewController.swift */,
+				02D9D3C027DC7A9300922243 /* MainPlaceholderViewController.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		02D9D3AF27DC56BC00922243 /* APIService */ = {
@@ -187,16 +223,13 @@
 		02DD585827DAF9CF00C8F159 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				02A6382927DDEE3E00FDD0B4 /* Main */,
+				02A6382827DDEE1C00FDD0B4 /* TransferView */,
+				02A6382727DDEDFF00FDD0B4 /* TransactionView */,
 				02DD58BB27DB986600C8F159 /* ReusableView */,
-				02DD584627DAF4EE00C8F159 /* ContainerViewController.swift */,
-				02DD58AA27DB483600C8F159 /* MenuViewController.swift */,
-				02DD58B827DB74FC00C8F159 /* TransactionViewCell */,
+				02DD58AA27DB483600C8F159 /* SideMenuViewController.swift */,
 				02DD58AC27DB483F00C8F159 /* DashboardViewController.swift */,
-				02DD58B227DB59AF00C8F159 /* TransferViewController.swift */,
-				02DD58B427DB59C100C8F159 /* TransactionViewController.swift */,
 				02DD58BE27DBB73800C8F159 /* AuthViewController.swift */,
-				02DD58C027DBB74300C8F159 /* RegisterViewController.swift */,
-				02D9D3C027DC7A9300922243 /* ContentPlaceholderViewController.swift */,
 				02D9D3CC27DD122C00922243 /* PayeesListViewController.swift */,
 			);
 			path = View;
@@ -238,7 +271,6 @@
 				02DD58BC27DB989100C8F159 /* TextFieldForm.swift */,
 				02DD58C227DBC23A00C8F159 /* ButtonForm.swift */,
 				02D9D3C627DCAE0100922243 /* LabelErrorForm.swift */,
-				02D9D3CA27DD08B000922243 /* ChoosePayeesUIView.swift */,
 				02D9D3D027DD24FE00922243 /* LabelPlaceholder.swift */,
 			);
 			path = ReusableView;
@@ -405,6 +437,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02A6382527DDD66900FDD0B4 /* MockingAPIDataSource.swift in Sources */,
 				02A6381D27DDD0ED00FDD0B4 /* Gilbert_AssessmentUnitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,13 +450,12 @@
 				02DD58BF27DBB73800C8F159 /* AuthViewController.swift in Sources */,
 				02DD58B727DB6D4E00C8F159 /* Transaction.swift in Sources */,
 				02D9D3CD27DD122C00922243 /* PayeesListViewController.swift in Sources */,
-				02DD584727DAF4EE00C8F159 /* ContainerViewController.swift in Sources */,
+				02DD584727DAF4EE00C8F159 /* ContentContainerViewController.swift in Sources */,
 				02DD58B327DB59AF00C8F159 /* TransferViewController.swift in Sources */,
 				02D9D3B127DC5A1E00922243 /* Balance.swift in Sources */,
 				02DD58AD27DB483F00C8F159 /* DashboardViewController.swift in Sources */,
 				02D9D3B527DC5DC800922243 /* Payees.swift in Sources */,
-				02DD58AB27DB483600C8F159 /* MenuViewController.swift in Sources */,
-				02DD58C127DBB74300C8F159 /* RegisterViewController.swift in Sources */,
+				02DD58AB27DB483600C8F159 /* SideMenuViewController.swift in Sources */,
 				02D9D3AE27DC4E2400922243 /* APIDataSource.swift in Sources */,
 				02DD584327DAF4EE00C8F159 /* AppDelegate.swift in Sources */,
 				02DD58B527DB59C100C8F159 /* TransactionViewController.swift in Sources */,
@@ -439,7 +471,7 @@
 				02D9D3BD27DC6E4100922243 /* TransferViewModel.swift in Sources */,
 				02D9D3CB27DD08B000922243 /* ChoosePayeesUIView.swift in Sources */,
 				02D9D3B927DC6E2700922243 /* AuthViewModel.swift in Sources */,
-				02D9D3C127DC7A9300922243 /* ContentPlaceholderViewController.swift in Sources */,
+				02D9D3C127DC7A9300922243 /* MainPlaceholderViewController.swift in Sources */,
 				02DD58AF27DB48FE00C8F159 /* GlobalExtensions.swift in Sources */,
 				02DD58B127DB4A6700C8F159 /* Protocols.swift in Sources */,
 				02D9D3C727DCAE0100922243 /* LabelErrorForm.swift in Sources */,

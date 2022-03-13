@@ -55,6 +55,7 @@ class TransferViewController: UIViewController {
     }
 
     private func configureUI() {
+        self.setGradientBackground(colorTop: UIColor.white.cgColor, colorBottom: UIColor.systemBlue.cgColor)
         self.hideKeyboardWhenTapOutside()
         
         view.addSubview(labelFromPlaceHolder)
@@ -77,6 +78,9 @@ class TransferViewController: UIViewController {
         textFieldAmount.delegate = self
         textFieldAmount.placeholder = "Amount (SGD)"
         textFieldAmount.keyboardType = .numberPad
+        textFieldAmount.layer.shadowOpacity = 0
+        textFieldAmount.layer.borderWidth = 1
+        textFieldAmount.layer.borderColor = UIColor.gray.cgColor
         textFieldAmount.anchor(top: labelAmountPlaceholder.bottomAnchor, left: choosePayeesView.leftAnchor, right: choosePayeesView.rightAnchor, paddingTop: 10, height: 40)
         
         view.addSubview(labelErrorAmount)

@@ -18,7 +18,7 @@ class DashboardViewController: UIViewController {
     let labelName: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.font = UIFont.boldSystemFont(ofSize: 25)
+        label.font = UIFont.boldSystemFont(ofSize: 27)
         return label
     }()
     
@@ -28,17 +28,18 @@ class DashboardViewController: UIViewController {
         return ai
     }()
     
-    var labelBalancePlaceholder = UILabel()
-    var labelBalance = UILabel()
-    var labelAccNumPlaceHolder = UILabel()
-    var labelAccNum = UILabel()
+    private let labelBalancePlaceholder = UILabel()
+    private let labelBalance = UILabel()
+    private let labelAccNumPlaceHolder = UILabel()
+    private let labelAccNum = UILabel()
+    private let containerInfoAcc = UIView()
+    private let containerBalance = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         title = "Dashboard"
         
-        viewModel.getBalance()
         configureUI()
         configureObserver()
     }
@@ -49,33 +50,41 @@ class DashboardViewController: UIViewController {
     
     private func configureUI() {
         self.setGradientBackground(colorTop: UIColor.white.cgColor, colorBottom: UIColor.systemBlue.cgColor)
+        
         let menuButton = UIBarButtonItem(image: UIImage(systemName: "list.dash"), style: .done, target: self, action: #selector(didTapMenuBtn))
         menuButton.tintColor = .black
         navigationItem.leftBarButtonItem = menuButton
         
-        view.addSubview(labelName)
+        view.addSubview(containerInfoAcc)
+        containerInfoAcc.layer.cornerRadius = 8
+        containerInfoAcc.layer.backgroundColor = UIColor.white.cgColor
+        containerInfoAcc.layer.shadowOpacity = 0.2
+        containerInfoAcc.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 50, paddingLeft: 20, paddingRight: 20)
+        
+        containerInfoAcc.addSubview(labelName)
         if let name = UserDefaults.standard.string(forKey: UserDefaultsType.username.rawValue) {
             labelName.text = "Hello, \(name)"
         }
-        labelName.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 50, paddingLeft: 30)
+        labelName.anchor(top: containerInfoAcc.topAnchor, left: containerInfoAcc.leftAnchor, right: containerInfoAcc.rightAnchor, paddingTop: 20, paddingLeft: 20)
         
-        view.addSubview(labelAccNumPlaceHolder)
+        containerInfoAcc.addSubview(labelAccNumPlaceHolder)
         labelAccNumPlaceHolder.text = "Account No:"
         labelAccNumPlaceHolder.textColor = .darkGray
         labelAccNumPlaceHolder.font = UIFont.systemFont(ofSize: 14)
-        labelAccNumPlaceHolder.anchor(top: labelName.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 10, paddingLeft: 30)
+        labelAccNumPlaceHolder.anchor(top: labelName.bottomAnchor, left: containerInfoAcc.leftAnchor, right: containerInfoAcc.rightAnchor, paddingTop: 20, paddingLeft: 20)
         
-        view.addSubview(labelAccNum)
+        containerInfoAcc.addSubview(labelAccNum)
         if let accNum = UserDefaults.standard.string(forKey: UserDefaultsType.accNumber.rawValue) {
             labelAccNum.text = accNum
         }
+        
         labelAccNum.font = UIFont.boldSystemFont(ofSize: 16)
-        labelAccNum.anchor(top: labelAccNumPlaceHolder.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 5, paddingLeft: 30)
+        labelAccNum.anchor(top: labelAccNumPlaceHolder.bottomAnchor, left: containerInfoAcc.leftAnchor, bottom: containerInfoAcc.bottomAnchor, right: containerInfoAcc.rightAnchor, paddingTop: 5, paddingLeft: 20, paddingBottom: 20)
         
         view.addSubview(labelBalancePlaceholder)
         labelBalancePlaceholder.text = "Your Balance:"
         labelBalancePlaceholder.font = UIFont.systemFont(ofSize: 22)
-        labelBalancePlaceholder.centerX(inView: view, topAnchor: labelAccNum.bottomAnchor, paddingTop: 80)
+        labelBalancePlaceholder.centerX(inView: view, topAnchor: containerInfoAcc.bottomAnchor, paddingTop: 80)
         
         view.addSubview(labelBalance)
         labelBalance.font = UIFont.boldSystemFont(ofSize: 32)

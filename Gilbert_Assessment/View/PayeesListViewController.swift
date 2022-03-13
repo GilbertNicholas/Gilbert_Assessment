@@ -39,7 +39,7 @@ class PayeesListViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = .black
         
         view.addSubview(tableView)
-        tableView.addConstraintsToFillView(view)
+        tableView.addConstraintsToFillView(view, top: view.topAnchor)
         
         view.addSubview(indicatorLoading)
         indicatorLoading.hidesWhenStopped = true

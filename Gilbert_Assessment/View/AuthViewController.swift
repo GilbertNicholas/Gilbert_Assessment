@@ -54,7 +54,7 @@ class AuthViewController: UIViewController {
         
         view.addSubview(usernameTextField)
         usernameTextField.delegate = self
-        usernameTextField.placeholder = "Email"
+        usernameTextField.placeholder = "Username"
         usernameTextField.anchor(top: logoText.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 60, paddingLeft: 30, paddingRight: 30, height: 40)
         
         view.addSubview(labelErrorUsername)
@@ -92,7 +92,7 @@ class AuthViewController: UIViewController {
         labelSwitch.textColor = .white
         labelSwitch.font = UIFont.boldSystemFont(ofSize: 14)
         labelSwitch.isUserInteractionEnabled = true
-        labelSwitch.centerX(inView: view, topAnchor: usedButton.bottomAnchor, paddingTop: 15)
+        labelSwitch.centerX(inView: view, topAnchor: usedButton.bottomAnchor, paddingTop: 22)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapSwitchType))
         labelSwitch.addGestureRecognizer(tap)

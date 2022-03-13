@@ -1,5 +1,5 @@
 //
-//  MenuViewController.swift
+//  SideMenuViewController.swift
 //  Gilbert_Assessment
 //
 //  Created by Gilbert Nicholas on 11/03/22.
@@ -7,13 +7,12 @@
 
 import UIKit
 
-class MenuViewController: UIViewController {
+class SideMenuViewController: UIViewController {
     
     var delegate: MenuViewControllerDelegate?
     
     let tableView: UITableView = {
         let table = UITableView()
-        table.backgroundColor = .lightGray
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         return table
     }()
@@ -35,19 +34,20 @@ class MenuViewController: UIViewController {
     
     private func configureUI() {
         view.addSubview(userLabel)
+        userLabel.numberOfLines = 0
         if let username = UserDefaults.standard.string(forKey: UserDefaultsType.username.rawValue) {
             userLabel.text = username
         }
-        userLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 20, paddingLeft: 20)
+        userLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 20, paddingLeft: 20, paddingRight: 100)
         
         view.addSubview(tableView)
         tableView.anchor(top: userLabel.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 10)
         
-        view.backgroundColor = .systemBlue
+        self.setGradientBackground(colorTop: UIColor.systemBlue.cgColor, colorBottom: UIColor.white.cgColor)
     }
 }
 
-extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
+extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return MenuOptions.allCases.count
     }
@@ -57,12 +57,9 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
         
         var content = cell.defaultContentConfiguration()
         content.text = MenuOptions.allCases[indexPath.row].rawValue
-        content.textProperties.color = .white
         content.image = UIImage(systemName: MenuOptions.allCases[indexPath.row].imageName)
-        content.imageProperties.tintColor = .white
 
         cell.contentConfiguration = content
-        cell.backgroundColor = .lightGray
         return cell
     }
     

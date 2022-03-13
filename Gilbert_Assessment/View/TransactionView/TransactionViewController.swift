@@ -11,11 +11,12 @@ import Combine
 class TransactionViewController: UIViewController {
     
     private var subs = Set<AnyCancellable>()
-    private var transaction: [TranData] = []
+    private var transaction: [[TranData]] = []
     private let viewModel = TransactionViewModel()
     
     let tableView: UITableView = {
         let table = UITableView()
+        table.backgroundColor = nil
         table.register(TransactionViewCell.self, forCellReuseIdentifier: TransactionViewCell.id)
         return table
     }()
@@ -40,13 +41,14 @@ class TransactionViewController: UIViewController {
     }
     
     private func configureUI() {
+        
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.addConstraintsToFillView(view)
+        tableView.addConstraintsToFillView(view, top: view.safeAreaLayoutGuide.topAnchor)
         
         view.addSubview(indicator)
-        indicator.addConstraintsToFillView(view)
+        indicator.addConstraintsToFillView(view, top: view.safeAreaLayoutGuide.topAnchor)
     }
     
     private func configureObserver() {
@@ -67,20 +69,23 @@ class TransactionViewController: UIViewController {
 
 extension TransactionViewController: UITableViewDelegate, UITableViewDataSource {
 
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return transaction.count
-//    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(transaction.count)
+    func numberOfSections(in tableView: UITableView) -> Int {
         return transaction.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return transaction[section].count
         
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return transaction[section][0].transactionDate.iso8601withFractionalSeconds.dashboardFormat()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TransactionViewCell.id, for: indexPath) as! TransactionViewCell
         
-        cell.configureContent(data: transaction[indexPath.row])
+        cell.configureContent(data: transaction[indexPath.section][indexPath.row])
         return cell
 //        if indexPath.row == 0 {
 //            let cell = UITableViewCell()

@@ -81,9 +81,9 @@ extension UIView {
         heightAnchor.constraint(equalToConstant: height).isActive = true
     }
     
-    func addConstraintsToFillView(_ view: UIView) {
+    func addConstraintsToFillView(_ view: UIView, top: NSLayoutYAxisAnchor) {
         translatesAutoresizingMaskIntoConstraints = false
-        anchor(top: view.topAnchor, left: view.leftAnchor,
+        anchor(top: top, left: view.leftAnchor,
                bottom: view.bottomAnchor, right: view.rightAnchor)
     }
 }
@@ -109,14 +109,49 @@ extension UIViewController {
     }
     
     func setGradientBackground(colorTop: CGColor, colorBottom: CGColor) {
-//        let colorTop =  UIColor(red: 255.0/255.0, green: 149.0/255.0, blue: 0.0/255.0, alpha: 1.0).cgColor
-//        let colorBottom = UIColor(red: 255.0/255.0, green: 94.0/255.0, blue: 58.0/255.0, alpha: 1.0).cgColor
-                    
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [colorTop, colorBottom]
         gradientLayer.locations = [0.0, 1.0]
         gradientLayer.frame = self.view.bounds
                 
         self.view.layer.insertSublayer(gradientLayer, at:0)
+    }
+}
+
+extension ISO8601DateFormatter {
+    convenience init(_ formatOptions: Options) {
+        self.init()
+        self.formatOptions = formatOptions
+    }
+}
+
+extension Formatter {
+    static let iso8601withFractionalSeconds = ISO8601DateFormatter([.withInternetDateTime, .withFractionalSeconds])
+}
+
+extension Date {
+    var iso8601withFractionalSeconds: String { return Formatter.iso8601withFractionalSeconds.string(from: self) }
+}
+
+extension String {
+    var iso8601withFractionalSeconds: Date { return Formatter.iso8601withFractionalSeconds.date(from: self)! }
+}
+
+extension Sequence where Element: Hashable {
+    func uniqued() -> [Element] {
+        var set = Set<Element>()
+        return filter { set.insert($0).inserted }
+    }
+}
+
+extension Date {
+    func removeTimeStamp() -> Date {
+        return Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: self))!
+    }
+    
+    func dashboardFormat() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "d MMM yyyy"
+        return formatter.string(from: self)
     }
 }

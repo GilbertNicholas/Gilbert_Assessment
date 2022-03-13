@@ -7,13 +7,13 @@
 
 import UIKit
 
-class ContainerViewController: UIViewController {
+class ContentContainerViewController: UIViewController {
     
     private var stateMenu: StateMenu = .closed
     private var currVC: UIViewController?
     
     var delegate: ContentCoordinatorDelegate?
-    let menuVC = MenuViewController()
+    let menuVC = SideMenuViewController()
     let dashVC = DashboardViewController()
     
     var navVC: UINavigationController?
@@ -50,7 +50,7 @@ class ContainerViewController: UIViewController {
     }
 }
 
-extension ContainerViewController: DashboardViewControllerDelegate {
+extension ContentContainerViewController: DashboardViewControllerDelegate {
     func didTapMenu() {
         switch stateMenu {
         case .opened:
@@ -64,9 +64,11 @@ extension ContainerViewController: DashboardViewControllerDelegate {
             }
         case .closed:
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut) {
-                self.navVC?.view.frame.origin.x = self.dashVC.view.frame.size.width - 100
-                self.navVC!.view.insertSubview(self.viewOpac, at: 1)
-                self.viewOpac.addConstraintsToFillView((self.navVC?.view)!)
+                if let navVC = self.navVC {
+                    navVC.view.frame.origin.x = self.dashVC.view.frame.size.width - 100
+                    navVC.view.insertSubview(self.viewOpac, at: 1)
+                    self.viewOpac.addConstraintsToFillView(navVC.view, top: navVC.view.topAnchor)
+                }
             } completion: { [weak self] done in
                 if done {
                     self?.stateMenu = .opened
@@ -76,7 +78,7 @@ extension ContainerViewController: DashboardViewControllerDelegate {
     }
 }
 
-extension ContainerViewController: MenuViewControllerDelegate {
+extension ContentContainerViewController: MenuViewControllerDelegate {
     func didSelectOption(menuOption: MenuOptions) {
         if stateMenu == .opened {
             didTapMenu()
@@ -123,7 +125,9 @@ extension ContainerViewController: MenuViewControllerDelegate {
     }
     
     func logout() {
-        UserDefaults.standard.set(nil, forKey: "token")
+        UserDefaults.standard.set(nil, forKey: UserDefaultsType.token.rawValue)
+        UserDefaults.standard.set(nil, forKey: UserDefaultsType.username.rawValue)
+        UserDefaults.standard.set(nil, forKey: UserDefaultsType.accNumber.rawValue)
         delegate?.didChangeContent()
     }
 }

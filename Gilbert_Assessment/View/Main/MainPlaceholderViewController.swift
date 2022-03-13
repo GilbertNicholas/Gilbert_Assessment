@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 
-class ContentPlaceholderViewController: UIViewController {
+class MainPlaceholderViewController: UIViewController {
     
-    static let singleton = ContentPlaceholderViewController()
+    static let singleton = MainPlaceholderViewController()
     private var currVC: UIViewController?
     
     override func viewDidLoad() {
@@ -23,14 +23,14 @@ class ContentPlaceholderViewController: UIViewController {
     }
 }
 
-extension ContentPlaceholderViewController: ContentCoordinatorDelegate {
+extension MainPlaceholderViewController: ContentCoordinatorDelegate {
     func didChangeContent() {
         if UserDefaults.standard.string(forKey: "token") == nil {
             let authVC = AuthViewController()
             authVC.delegate = self
             addVC(vc: authVC)
         } else {
-            let mainVC = ContainerViewController()
+            let mainVC = ContentContainerViewController()
             mainVC.delegate = self
             addVC(vc: mainVC)
         }

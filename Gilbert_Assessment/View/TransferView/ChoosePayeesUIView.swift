@@ -52,6 +52,7 @@ class ChoosePayeesUIView: UIView {
         
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.black.cgColor
+        self.layer.backgroundColor = UIColor.white.cgColor
         self.layer.cornerRadius = 8
     }
 }

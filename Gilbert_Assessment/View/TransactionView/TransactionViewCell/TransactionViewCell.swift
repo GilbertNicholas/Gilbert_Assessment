@@ -39,6 +39,8 @@ class TransactionViewCell: UITableViewCell {
     }
     
     private func configureUI() {
+//        self.backgroundColor = .clear
+        
         contentView.addSubview(labelName)
         labelName.anchor(top: contentView.topAnchor, left: contentView.leftAnchor, paddingTop: 10, paddingLeft: 20)
         
