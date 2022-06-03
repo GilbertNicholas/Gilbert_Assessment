@@ -9,7 +9,7 @@ import XCTest
 @testable import Gilbert_Assessment
 
 class Transaction_Data_Formatting: XCTestCase {
-    // TEST
+    
     var transactionViewModel = TransactionViewModel()
     
     let tranData1 = TranData(transactionId: "1", amount: 100, transactionDate: "2022-01-19T04:39:38.596Z", description: "test1", transactionType: "transfer", receipient: Stakeholder(accountNo: "2833-703-6351", accountHolder: "Mohammed"), sender: nil)
