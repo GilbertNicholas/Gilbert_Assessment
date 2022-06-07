@@ -31,5 +31,3 @@ Because of cocoapods Alamofire dependency, please install the pod before running
 ▸ Cocoapods<br>
 ▸ Alamofire<br>
 ▸ Xcode<br>
-
-![Chat Reimbursement_OCBC](https://user-images.githubusercontent.com/56470763/172333559-71b9ac03-bed0-41cc-ac02-ed8135ce89e7.jpeg)
